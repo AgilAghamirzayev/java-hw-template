@@ -3,21 +3,48 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class hw01  {
+
+    private static String name;
+
     public static void main(String[] args) {
 
-        System.out.print("Hi! First of all please write your name: ");
-
         Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
+        System.out.print("Hi! First of all please write your name: ");
+        name = scanner.nextLine();
+
+        System.out.println();
         System.out.println("**************************");
         System.out.println("*  Let the game, begin ! *");
         System.out.println("**************************");
+        System.out.println();
 
+        guessYourNum();
+
+    }
+
+
+    public static void guessYourNum(){
+        Scanner scanner = new Scanner(System.in);
+        int guess;
         int[] arr = new int[]{};
 
-        int guess = myRandomMethod();
+        System.out.println("For regular game click in : 1 \nFor advance game click in : 2 ");
+        int a = scanner.nextInt();
+
+            switch (a){
+                case 1:
+                    guess = myRandomMethod1();
+                    break;
+                case 2:
+                    guess = myRandomMethod2();
+                    break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + a);
+            }
+
+
+
 
         System.out.println();
         while (true){
@@ -44,7 +71,36 @@ public class hw01  {
         scanner.close();
     }
 
-    public static int  myRandomMethod(){
+
+
+    public static int myRandomMethod1(){
+
+        System.out.println("Please enter a number in a range [0-100] ");
+
+
+        int[] array = new int[]{
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+                31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+                41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+                51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
+                61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
+                71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
+                81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
+                91, 92, 93, 94, 95, 96, 97, 98, 99, 100};
+
+        Random random = new Random();
+        final int MIN = 0;
+        final int MAX = array.length-1;
+
+        int randomNumber = random.nextInt(MAX-MIN+1) + MIN; //random.nextInt(max - min + 1) + min
+
+        return randomNumber;
+
+    }
+
+    public static int  myRandomMethod2(){
 
         String[][] array = {
                 {"When was born Hazrat Muhammad? ", "571"},
@@ -59,8 +115,8 @@ public class hw01  {
                 {"When was the Antarctic discovered?", "1773"},
                 {"When created Facebook? ", "2004"},
         };
+        Random random = new Random();
 
-        Random random =new Random();
         final int MIN = 0;
         final int MAX = array.length-1;
 
