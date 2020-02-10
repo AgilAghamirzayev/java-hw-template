@@ -5,13 +5,9 @@ public class hw01  {
         System.out.print("Hi! First of all please write your name: ");
 
         Scanner scanner = new Scanner(System.in);
-
         String name = scanner.nextLine();
 
         int[] arr = new int[]{};
-
-
-
 
         System.out.println("Let the game, begin !");
 
@@ -42,6 +38,7 @@ public class hw01  {
     }
 
     public static int myRandomMethod(){
+
         int[] array = new int[]{
                 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
                 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -72,7 +69,6 @@ public class hw01  {
         newarr[n] = x;
         return newarr;
     }
-
 
 
     public static int[] sortArrayAlgorithm(int[] array) { // bubble sorting )
