@@ -1,4 +1,4 @@
-package hw03;
+package hw02;
 
 import java.util.Random;
 import java.util.Scanner;
