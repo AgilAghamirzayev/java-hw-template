@@ -1,25 +1,31 @@
 package hw01;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+
 public class hw01  {
     public static void main(String[] args) {
+
         System.out.print("Hi! First of all please write your name: ");
 
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
+        System.out.println("**************************");
+        System.out.println("*  Let the game, begin ! *");
+        System.out.println("**************************");
 
         int[] arr = new int[]{};
 
-        System.out.println("Let the game, begin !");
-
         int guess = myRandomMethod();
 
+        System.out.println();
         while (true){
-            System.out.println("Please enter a number in a range [0-100] ");
             try {
                 int num  = scanner.nextInt();
                 arr =addArrayAlgorithm(arr.length, arr, num);
                 if (guess==num){
-                    System.out.println("Congratulations, " + name);
+                    System.out.println("Congratulations you found the correct answer , " + name);
                     break;
                 } else if (num > guess){
                     System.out.println("Your number is too big. Please, try again.");
@@ -37,27 +43,31 @@ public class hw01  {
         scanner.close();
     }
 
-    public static int myRandomMethod(){
+    public static int  myRandomMethod(){
 
-        int[] array = new int[]{
-                1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-                11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-                21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-                31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-                41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
-                51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
-                61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
-                71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
-                81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
-                91, 92, 93, 94, 95, 96, 97, 98, 99, 100};
+        String[][] array = {
+                {"When was born Hazrat Muhammad? ", "571"},
+                {"When did the World War II begin? " , "1939"},
+                {"When did the World War I begin? " , "1914"},
+                {"When did Azerbaijan gain independence? ", "1918"},
+                {"When happened Khojaly Massacre in azerbaijan? ", "1992"},
+                {"When was   founded Google? ", "1998"},
+                {"When was mcdonald's founded? ", "1955"},
+                {"When was Microsoft founded? ", "1975"},
+                {"When was Apple founded? ", "1976"},
+                {"When was the Antarctic discovered?", "1773"},
+                {"When created Facebook? ", "2004"},
+        };
 
         Random random =new Random();
         final int MIN = 0;
         final int MAX = array.length-1;
 
         int randomNumber = random.nextInt(MAX-MIN+1) + MIN; //random.nextInt(max - min + 1) + min
-        // I can use int randomNumber=random.nextInt(100); but the task must be performed using arrays
-        return randomNumber;
+        System.out.println(array[randomNumber][0]);
+
+        int a = Integer.parseInt(array[randomNumber][1]);
+        return a;
     }
 
 
