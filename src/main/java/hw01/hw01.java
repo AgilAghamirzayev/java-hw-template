@@ -25,7 +25,8 @@ public class hw01  {
                 int num  = scanner.nextInt();
                 arr =addArrayAlgorithm(arr.length, arr, num);
                 if (guess==num){
-                    System.out.println("Congratulations you found the correct answer , " + name);
+                    String combined =String.format("Congratulations , %s you found the correct answer " , name);
+                    System.out.println(combined);
                     break;
                 } else if (num > guess){
                     System.out.println("Your number is too big. Please, try again.");
