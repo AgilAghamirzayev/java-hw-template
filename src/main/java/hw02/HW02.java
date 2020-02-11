@@ -6,8 +6,15 @@ import java.util.Scanner;
 public class HW02 {
     public static void main(String[] args) {
 
-        System.out.println("All set. Get ready to rumble!");
+        System.out.println("All set. Get ready to rumble!\n");
 
+        System.out.println(
+                "0 | 1 | 2 | 3 | 4 | 5 |\n" +
+                "1 | - | - | - | - | - |\n" +
+                "2 | - | - | - | - | - |\n" +
+                "3 | - | - | - | - | - |\n" +
+                "4 | - | - | - | - | - |\n" +
+                "5 | - | - | - | - | - |\n");
 
         shooting();
 
@@ -29,25 +36,26 @@ public class HW02 {
 
         String arr[][] = new String[5][5];
 
-
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                arr[i][j] = "-";
-                System.out.print(arr[i][j] + " | ");
+        for (int a = 0; a < 5; a++) {
+            for (int  b = 0; b < 5; b++) {
+                arr[a][b] = "-";
             }
-            System.out.println();
         }
 
-
         while (true) {
-            System.out.println("enter a line for fire: ");
+            System.out.print("Enter a line for fire: ");
             try {
                 int i = scanner.nextInt();
                 int j = scanner.nextInt();
+
                 arr[i - 1][j - 1] = "*";
 
+                System.out.println("\n");
+                System.out.println( "0 | 1 | 2 | 3 | 4 | 5 |");
                 for (int m = 0; m < 5; m++) {
+                    System.out.print(m+1 +" | ");
                     for (int n = 0; n < 5; n++) {
+
                         System.out.print(arr[m][n] + " | ");
                     }
                     System.out.println();
@@ -68,8 +76,9 @@ public class HW02 {
 
         System.out.println("Finally you have won!!!");
         System.out.println();
-
+        System.out.println( "0 | 1 | 2 | 3 | 4 | 5 |");
             for (int i = 0; i < 5; i++) {
+                System.out.print(i+1 +" | ");
                 for (int j = 0; j < 5; j++) {
                     System.out.print(arr[i][j] + " | ");
                 }
