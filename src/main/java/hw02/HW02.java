@@ -8,6 +8,7 @@ public class HW02 {
 
         System.out.println("All set. Get ready to rumble!");
 
+
         shooting();
 
     }
@@ -32,7 +33,9 @@ public class HW02 {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 arr[i][j] = "-";
+                System.out.print(arr[i][j] + " | ");
             }
+            System.out.println();
         }
 
 
@@ -51,7 +54,7 @@ public class HW02 {
                 }
 
                 System.out.println();
-                if (arr[i - 1][j - 1] == arr[r2 - 1][r3 - 1]) {
+                if (arr[i - 1][j - 1].equals(arr[r2 - 1][r3 - 1])) {
                     arr[r2 - 1][r3 - 1] = "x";
                     break;
                 }
