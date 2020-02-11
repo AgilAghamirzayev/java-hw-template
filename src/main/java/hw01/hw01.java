@@ -1,4 +1,5 @@
 package hw01;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -23,26 +24,35 @@ public class hw01  {
 
     }
 
+    public static int choose(){
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            try {
+                int a = scanner.nextInt();
+                switch (a) {
+                    case 1:
+                        return myRandomMethod1();
+                    case 2:
+                        return myRandomMethod2();
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + a);
+                }
+            } catch (Exception e) {
+                System.out.println("You should choose 1 or 2");
+                choose();
+            }
+
+        }
+    }
 
     public static void guessYourNum(){
         Scanner scanner = new Scanner(System.in);
-        int guess;
         int[] arr = new int[]{};
 
         System.out.println("For regular game click in : 1 \nFor advance game click in : 2 ");
-        int a = scanner.nextInt();
 
-            switch (a){
-                case 1:
-                    guess = myRandomMethod1();
-                    break;
-                case 2:
-                    guess = myRandomMethod2();
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + a);
-            }
-
+        int guess = choose();
 
         System.out.println();
         while (true){
