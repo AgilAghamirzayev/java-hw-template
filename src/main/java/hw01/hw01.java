@@ -44,8 +44,6 @@ public class hw01  {
             }
 
 
-
-
         System.out.println();
         while (true){
             try {
