@@ -86,7 +86,10 @@ public class hw01  {
         System.out.println("Please enter a number in a range [0-100] ");
 
         Random random = new Random();
-        return random.nextInt();
+        final int MIN = 0;
+        final int MAX = 100;
+
+        return random.nextInt(MAX-MIN+1) + MIN;
     }
 
     public static int  myRandomMethod2(){
