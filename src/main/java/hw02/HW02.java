@@ -34,7 +34,7 @@ public class HW02 {
         //System.out.println(r3);
 
 
-        String arr[][] = new String[5][5];
+        String[][] arr = new String[5][5];
 
         for (int a = 0; a < 5; a++) {
             for (int  b = 0; b < 5; b++) {
@@ -45,21 +45,15 @@ public class HW02 {
         while (true) {
             System.out.print("Enter a line for fire: ");
             try {
+                System.out.println("Please write line number : ");
                 int i = scanner.nextInt();
+                System.out.println("Please write column number : ");
                 int j = scanner.nextInt();
 
                 arr[i - 1][j - 1] = "*";
 
                 System.out.println("\n");
-                System.out.println( "0 | 1 | 2 | 3 | 4 | 5 |");
-                for (int m = 0; m < 5; m++) {
-                    System.out.print(m+1 +" | ");
-                    for (int n = 0; n < 5; n++) {
-
-                        System.out.print(arr[m][n] + " | ");
-                    }
-                    System.out.println();
-                }
+                print(arr);
 
                 System.out.println();
                 if (arr[i - 1][j - 1].equals(arr[r2 - 1][r3 - 1])) {
@@ -76,14 +70,18 @@ public class HW02 {
 
         System.out.println("Finally you have won!!!");
         System.out.println();
-        System.out.println( "0 | 1 | 2 | 3 | 4 | 5 |");
-            for (int i = 0; i < 5; i++) {
-                System.out.print(i+1 +" | ");
-                for (int j = 0; j < 5; j++) {
-                    System.out.print(arr[i][j] + " | ");
-                }
-                System.out.println();
+        print(arr);
+    }
+
+    private static void print(String[][] arr) {
+        System.out.println("0 | 1 | 2 | 3 | 4 | 5 |");
+        for (int m = 0; m < 5; m++) {
+            System.out.print(m+1 +" | ");
+            for (int n = 0; n < 5; n++) {
+                System.out.print(arr[m][n] + " | ");
             }
+            System.out.println();
         }
     }
+}
 
