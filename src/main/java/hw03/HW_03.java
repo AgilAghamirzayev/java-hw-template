@@ -29,23 +29,22 @@ public class HW_03 {
             System.out.print("Please, input the day of the week: ");
             String s = scanner.nextLine();
             String m = s.toLowerCase();
-            String combined = String.format("Your tasks for %s: " , s);
 
             if (m.equals(arr[0][0].toLowerCase())){
-                System.out.println(combined + arr[0][1]);
+                System.out.println(String.format("Your tasks for %s: %s" , arr[0][0] , arr[0][1]));
             } else if (m.equals(arr[1][0].toLowerCase())){
-                System.out.println(combined + arr[1][1]);
+                System.out.println(String.format("Your tasks for %s: %s" , arr[1][0] , arr[1][1]));
             }else if (m.equals(arr[2][0].toLowerCase())){
-                System.out.println(combined + arr[2][1]);
+                System.out.println(String.format("Your tasks for %s: %s" , arr[2][0] , arr[2][1]));
             }else if (m.equals(arr[3][0].toLowerCase())){
-                System.out.println(combined + arr[3][1]);
+                System.out.println(String.format("Your tasks for %s: %s" , arr[3][0] , arr[3][1]));
             }else if (m.equals(arr[4][0].toLowerCase())){
-                System.out.println(combined + arr[4][1]);
+                System.out.println(String.format("Your tasks for %s: %s" , arr[4][0] , arr[4][1]));
             }else if (m.equals(arr[5][0].toLowerCase())){
-                System.out.println(combined + arr[5][1]);
+                System.out.println(String.format("Your tasks for %s: %s" , arr[5][0] , arr[5][1]));
             }else if (m.equals(arr[6][0].toLowerCase())){
-                System.out.println(combined + arr[6][1]);
-            }else if (m.equals("exit")){
+                System.out.println(String.format("Your tasks for %s: %s" , arr[6][0] , arr[6][1]));
+            }else if (m.equals("exit".toLowerCase())){
                 break;
             } else {
                 System.out.println("Sorry, I don't understand you, please try again.");
