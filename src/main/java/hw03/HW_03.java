@@ -34,7 +34,7 @@ public class HW_03 {
                     while (true){
                         System.out.println("If you want to change task of week, just write: 'change WeekDay'sName', For exit write 'exit'. \nex: 'change Monday' ");
                         String s = scanner.nextLine();
-                        String m = s.toLowerCase();
+                        String m = s.toLowerCase().trim();
                         if (m.equals(String.format("change %s", arr[0][0].toLowerCase()))) {
                             System.out.println(String.format("Please, input new tasks for %s .", arr[0][0]));
                             arr[0][1] = scanner.nextLine();
@@ -65,7 +65,7 @@ public class HW_03 {
                 } else if (select.toLowerCase().equals("no")) {
                     System.out.println("Please, input the day of the week:");
                     String s = scanner.nextLine();
-                    String m = s.toLowerCase();
+                    String m = s.toLowerCase().trim();
                     if (m.equals(arr[0][0].toLowerCase())) {
                         System.out.println(String.format("Your tasks for %s: %s", arr[0][0], arr[0][1]));
                     } else if (m.equals(arr[1][0].toLowerCase())) {
