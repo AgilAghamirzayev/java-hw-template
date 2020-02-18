@@ -43,7 +43,6 @@ public class HW02 {
         }
 
         while (true) {
-            System.out.print("Enter a line for fire: ");
             try {
                 System.out.println("Please write line number : ");
                 int i = scanner.nextInt();

@@ -1,13 +1,13 @@
-package hw04;
+package hw04;           
 
 import java.util.Arrays;
 
 public class Pet {
-    static String nickname;
-    static String species;
-    static int age;
-    static int trickLevel;
-    static String[] habits = new String[3];
+     String nickname;
+     String species;
+     int age;
+     int trickLevel;
+     static String[] habits = new String[]{"eat" , "drink", "sleep"};
 
     public Pet(String species, String nickname){
         this.species = species;
@@ -15,18 +15,14 @@ public class Pet {
     }
 
 
-    Pet(String species,String nickname,int age,  int trickLevel, String[] habits){
-        this.nickname = nickname;
+    Pet(String species,String nickname,int age,  int trickLevel){
         this.species = species;
+        this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
-        this.habits = habits;
+        toString();
     }
-
-
-    public Pet(){
-
-    }
+    public Pet(){ }
 
     public void eat(){
         System.out.println("I am eating");
