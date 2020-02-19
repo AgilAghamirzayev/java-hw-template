@@ -1,26 +1,27 @@
-package hw06;
+package hw07;
 
 public class Family {
-
-    private Human mother;
-    private Human father;
+    Woman mother;
+    Man father;
     private Human[] children = new Human[10];
     private Pet pet;
     private int count = 0;
     private static int temp = 0;
-    public int coutFamily;
 
 
-    Family(Human mother, Human father){
+    Family(Man father, Woman mother){
         count = 2;
         this.mother = mother;
         this.father = father;
     }
 
-    public void addChild(Human child){
+    void setPet(Pet pet){this.pet=pet;}
+
+    public void addChild(Man child){
         count++;
         children[temp] = child;
         temp++;
+
     }
 
     void deleteChild(int child){
@@ -45,26 +46,9 @@ public class Family {
         return sb;
     }
 
-    void eat(){
-        System.out.println("I am eating");
-    }
-
-    void respond(){
-        System.out.printf("Hello, owner. I am %s. I miss you!\n", pet.getNickname());
-    }
-
-    void foul(){
-        System.out.println("I need to cover it up\n");
-    }
-
-    public void addPet(Pet pet){
-        this.pet = pet;
-    }
-
     @Override
     protected void finalize() throws Throwable {
         System.out.println("Object " + this.getClass().getName());
     }
 
-    public int coutFamily(){return count;}
 }

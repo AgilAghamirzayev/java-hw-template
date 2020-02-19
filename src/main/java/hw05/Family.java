@@ -25,7 +25,7 @@ public class Family {
     void deleteChild(int child){
         if (temp + 1 - child >= 0) System.arraycopy(children, child+1, children, child, temp+1-child);
         temp--;
-        child--;
+        count--;
     }
 
     public String toString(){

@@ -1,4 +1,4 @@
-package hw06;
+package hw07;
 
 public class Human {
      public String name;
@@ -17,7 +17,12 @@ public class Human {
      };
 
 
-    public Human(String name, String surname, int year, int iq, int day, String task){
+    public Human(){
+        System.out.println("Object has been created!");
+    }
+
+
+    public Human(String name, String surname, int year, int iq, String day, String task){
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -25,20 +30,16 @@ public class Human {
         this.setSchedule(day, task);
     }
 
-    public Human() {
-            System.out.println("Object has been created");
+    void setSchedule(String day, String task) {
+        schedule[0][0] = day;
+        schedule[0][1] = task;
+        this.task = day + " " + task;
     }
 
-    void setSchedule(int day, String task) {
-            schedule[day-1][1]=task;
-            this.task = schedule[day-1][0]+ " " +schedule[day-1][1];
-    }
-
-    void greetPet(){
-
-    }
+    void greetPet(){}
 
     private String getSchedule() {
+
         return task;
     }
 
@@ -47,7 +48,7 @@ public class Human {
                 + " surname = " + this.surname
                 + " year = " + this.year
                 + " iq = " + this.iq
-                + " schedule = " + this.getSchedule().toLowerCase();
+                + " schedule = " + this.getSchedule();
 
     }
     @Override
