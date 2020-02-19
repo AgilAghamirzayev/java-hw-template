@@ -1,4 +1,5 @@
 package hw06;
 
-public class Species {
+public enum  Species {
+    DOG, CAT
 }
