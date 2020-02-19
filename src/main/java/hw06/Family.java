@@ -4,10 +4,11 @@ public class Family {
 
     private Human mother;
     private Human father;
-    private Human[] children = new Human[4];
+    private Human[] children = new Human[10];
     private Pet pet;
     private int count = 0;
     private static int temp = 0;
+    public int coutFamily;
 
 
     Family(Human mother, Human father){
@@ -60,4 +61,10 @@ public class Family {
         this.pet = pet;
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Object " + this.getClass().getName());
+    }
+
+    public int coutFamily(){return count;}
 }

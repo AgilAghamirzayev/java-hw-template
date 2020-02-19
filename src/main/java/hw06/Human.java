@@ -18,7 +18,7 @@ public class Human {
 
 
     public Human(){
-        System.out.println("Object has been created");
+        System.out.println("Object has been created!");
     }
 
 
@@ -46,5 +46,9 @@ public class Human {
                 + " iq = " + this.iq
                 + " schedule = " + this.getSchedule();
 
+    }
+    @Override
+    protected void finalize(){
+        System.out.println("Object has been deleted!");
     }
 }

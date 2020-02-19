@@ -1,21 +1,21 @@
 package hw06;
 public class Pet {
     private String nickname;
-    private String species;
+    private Species species;
     private int age;
     private int trickLevel;
-    private static String[] habits ;
+    private static String[] habits;
 
 
-    Pet(String species,String nickname,int age,  int trickLevel, String[] habit){
+    Pet(Species species,String nickname,int age,  int trickLevel, String[] habit){
         this.species = species;
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
-        this.habits = habit.clone();
+        habits = habit.clone();
     }
 
-    void setSpecies(String species){this.species = species;}
+    void setSpecies(String dog){}
     String getNickname(){return nickname;}
     void setNickname(String nickname){this.nickname = nickname;}
     void setAge(int age){this.age =age;}
@@ -42,4 +42,9 @@ public class Pet {
     }
 
     private int hashCode(Object pet){return hashCode();}
+
+    @Override
+    protected void finalize() {
+        System.out.println("Object " + this.getClass().getName());
+    }
 }
