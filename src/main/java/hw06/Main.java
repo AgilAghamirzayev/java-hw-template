@@ -21,7 +21,7 @@ public class Main {
         if (pet1.equals(pet2)) System.out.println("They are same");
         else System.out.println("They are different");
 
-        for (int i = 0; i < 1000000 ; i++) {
+        for (int i = 0; i < 10000 ; i++) {
             Human human = new Human();
         }
 
