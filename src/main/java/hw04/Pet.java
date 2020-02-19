@@ -22,6 +22,7 @@ public class Pet {
         this.trickLevel = trickLevel;
         toString();
     }
+
     public Pet(){ }
 
     public void eat(){

@@ -7,6 +7,7 @@ public class Main {
 
 
         //For pet class
+        System.out.println();
         Pet dog = new Pet("Dog", "Polo", 3 , 87);
         System.out.println(dog.toString());
         Pet cat = new Pet("Cat", "catt");

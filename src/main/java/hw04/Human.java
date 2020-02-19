@@ -1,7 +1,5 @@
 package hw04;
 
-import java.util.Arrays;
-
 public class Human {
      String name;
      String surname;
@@ -42,8 +40,6 @@ public class Human {
     }
 
 
-
-
     public void greetPet(){
         System.out.println("Hello, " + this.pet.nickname);
     }
@@ -54,7 +50,10 @@ public class Human {
     }
 
     public String toString(){
-         return "Human{" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", year=" + year + ", iq=" + iq + ", \npet=" + pet + ", \nmother=" + mother + ", \nfather=" + father + '}';
+         return "Human{" + "name='" + name + '\'' + ", surname='" + surname + '\'' + ", year=" + year + ", iq=" + iq
+                 + ", \npet=" + pet
+                 + ", \nmother=" + mother
+                 + ", \nfather=" + father + '}';
     }
 
     public String toString(int a){
