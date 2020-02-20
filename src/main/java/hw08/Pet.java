@@ -1,11 +1,14 @@
-package hw07;
+package hw08;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public abstract class Pet {
     private String nickname;
     private Species species;
     private int age;
     private int trickLevel;
-    private static String[] habits;
+    HashSet<String> habits = new HashSet<String>();
 
 
 
@@ -15,7 +18,9 @@ public abstract class Pet {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
-        habits = new String[]{habit1, habit2, habit3};
+        habits.add(habit1);
+        habits.add(habit2);
+        habits.add(habit3);
     }
 
 
@@ -27,11 +32,7 @@ public abstract class Pet {
         return String.format("%s{nickname=%s, age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, this.getHabits());
     }
     private String getHabits(){
-        StringBuilder sb = new StringBuilder();
-        for (String habit: habits) {
-            sb.append(" "+habit);
-        }
-        return sb.toString();
+       return habits.toString();
     }
 
     public boolean equals(Object that){
