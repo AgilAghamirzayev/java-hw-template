@@ -1,13 +1,13 @@
 package hw05;
-
+import java.util.Arrays;
 public class Family {
 
     private Human mother;
     private Human father;
-    private Human[] children = new Human[4];
+    public  Human[] children = new Human[5];
     private Pet pet;
-    private int count = 0;
-    private static int temp = 0;
+    private int count;
+    private  int temp = 0;
 
 
     Family(Human mother, Human father){
@@ -18,25 +18,25 @@ public class Family {
 
     public void addChild(Human child){
         count++;
-        children[temp] = child;
-        temp++;
+        children[temp++] = child;
     }
 
-    void deleteChild(int child){
-        if (temp + 1 - child >= 0) System.arraycopy(children, child+1, children, child, temp+1-child);
+    void deleteChild(int index){
+        int a=0;
+        for (int i = 0; i < temp ; i++) {
+            if (i == index - 1){ continue;}
+            children[a]=children[i];
+            a++;
+        }
+        System.out.println(temp);
         temp--;
         count--;
+        System.out.println(temp);
     }
 
-    public String toString(){
-        return "Family has" + this.count + " persons:"
-                + "\nfather: " + this.father.toString()
-                + "\nmother: " + this.mother.toString()
-                + "\nchildren: " + this.showChild()
-                + "\npet: " + pet.toString();
-    }
 
-    private StringBuilder showChild(){
+
+    public StringBuilder showChild(){
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < temp ; i++) {
             sb.append(children[i].toString());
@@ -60,4 +60,14 @@ public class Family {
         this.pet = pet;
     }
 
+    @Override
+    public String toString() {
+        return "Family{" +
+                "mother=" + mother +
+                ", father=" + father +
+                ", children=" + showChild() +
+                ", pet=" + pet +
+                ", count=" + count +
+                '}';
+    }
 }

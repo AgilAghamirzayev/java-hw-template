@@ -21,9 +21,6 @@ public class Pet {
     void setAge(int age){this.age =age;}
     void setTrickLevel(int trickLevel){this.trickLevel = trickLevel; }
 
-    public String toString(){
-        return String.format("%s{nickname=%s, age=%d, trickLevel=%d, habits=%s", species, nickname, age, trickLevel, this.getHabits());
-    }
     private String getHabits(){
         StringBuilder sb = new StringBuilder();
         for (String habit: habits) {
@@ -42,4 +39,14 @@ public class Pet {
     }
 
     private int hashCode(Object pet){return hashCode();}
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "nickname='" + nickname + '\'' +
+                ", species='" + species + '\'' +
+                ", age=" + age +
+                ", trickLevel=" + trickLevel +
+                '}';
+    }
 }

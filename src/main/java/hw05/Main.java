@@ -8,10 +8,22 @@ public class Main {
         Family family = new Family(mother, father);
         Pet pet = new Pet("Cat", "Less", 3, 78, new String[]{"eat", "sleep", "play"});
         Human me = new Human("Aqil", "Aghamirzayev", 1999, 100, 4, "Go to course");
-        family.addChild(me);
-        family.addPet(pet);
-        System.out.println(family.toString());
+        Human  a = new Human("Ali","Zeka", 1111, 121,3,"jkvdvkj");
+        Human b = new Human("B", "B", 1999, 100, 4, "Go to B");
+        Human c = new Human("C", "C", 1999, 100, 4, "Go to C");
+        Human d = new Human("D", "D", 1999, 100, 4, "Go to D");
 
+        family.addChild(me);
+        family.addChild(a);
+        family.addChild(b);
+        family.addChild(c);
+        family.addChild(d);
+        family.addPet(pet);
+        System.out.println(family.showChild());
+        family.deleteChild(4);
+        System.out.println(family.showChild());
+
+        System.out.println(family);
         family.eat();
         family.respond();
         family.foul();
@@ -22,3 +34,5 @@ public class Main {
 
     }
 }
+
+

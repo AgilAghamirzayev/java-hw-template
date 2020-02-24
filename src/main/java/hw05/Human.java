@@ -40,15 +40,14 @@ public class Human {
     }
 
 
-
-
-
-    public String toString(){
-        return "Human name = " + this.name
-                + " surname = " + this.surname
-                + " year = " + this.year
-                + " iq = " + this.iq
-                + " schedule = " + this.getSchedule();
-
+    @Override
+    public String toString() {
+        return " Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", year=" + year +
+                ", iq=" + iq +
+                ", task='" + task + '\'' +
+                "}\n";
     }
 }
