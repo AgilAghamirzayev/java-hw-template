@@ -31,6 +31,8 @@ public class Main {
         Pet pet1 = new Pet("Cat", "Less", 3, 78, new String[]{"eat", "sleep", "play"});
         Pet pet2 = new Pet("Cat", "Less", 3,78, new String[]{"eat", "sleep", "play"});
 
+        System.out.println(pet1.equals(pet2));
+        System.out.println(pet1.hashCode()==pet2.hashCode());
 
     }
 }

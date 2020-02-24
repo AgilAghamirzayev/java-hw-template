@@ -1,4 +1,7 @@
 package hw05;
+
+import java.util.Objects;
+
 public class Pet {
     private String nickname;
     private String species;
@@ -29,24 +32,21 @@ public class Pet {
         return sb.toString();
     }
 
-    public boolean equals(Object that){
-        if (this == that) return true;
-        if (hashCode(this) != hashCode(that)) return false;
-        if (!(that instanceof Pet)) return false;
-        return this.nickname.equals(((Pet) that).nickname)
-                && this.age == ((Pet) that).age
-                && this.species.equals(((Pet) that).species);
-    }
-
-    private int hashCode(Object pet){return hashCode();}
-
     @Override
-    public String toString() {
-        return "Pet{" +
-                "nickname='" + nickname + '\'' +
-                ", species='" + species + '\'' +
-                ", age=" + age +
-                ", trickLevel=" + trickLevel +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pet pet = (Pet) o;
+        return age == pet.age &&
+                trickLevel == pet.trickLevel &&
+                nickname.equals(pet.nickname) &&
+                species.equals(pet.species);
     }
+
+
+    public int hashCode() {
+        return Objects.hash(nickname, species, age, trickLevel);
+    }
+
+
 }
