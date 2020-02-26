@@ -7,6 +7,7 @@ final class Woman extends Human {
         System.out.println("object of Woman class has been created");
     }
 
+    @Override
     void greetPet() {
         System.out.println("GreetPet method from Woman Class");
     }

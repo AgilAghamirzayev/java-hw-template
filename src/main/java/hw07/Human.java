@@ -1,6 +1,7 @@
 package hw07;
 
 public class Human {
+
      public String name;
      public String surname;
      public int year;
