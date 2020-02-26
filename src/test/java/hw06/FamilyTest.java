@@ -1,6 +1,8 @@
 package hw06;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 class FamilyTest {
     Human father = new Human("Shakir", "Aghamirzayev", 1965, 118, 3, "Going to work");
@@ -22,16 +24,25 @@ class FamilyTest {
         family1.addChild(child2);
         int expect = 2;
         int actual = family1.temp;
-
+        assertEquals(expect,actual);
     }
 
     @Test
     void deleteChild() {
-
+        family1.addChild(child2);
+        family1.deleteChild(1);
+        int expect = 1;
+        int actual = family1.temp;
+        assertEquals(expect, actual);
     }
 
     @Test
     void testDeleteChild() {
+        family1.addChild(child2);
+        family1.deleteChild(1);
+        int expect = 1;
+        int actual = family1.temp;
+        assertEquals(expect, actual);
     }
 
     @Test
@@ -40,5 +51,8 @@ class FamilyTest {
 
     @Test
     void coutFamily() {
+        int expect = 3;
+        int actual = family1.coutFamily();
+        assertEquals(expect,actual);
     }
 }

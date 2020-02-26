@@ -12,6 +12,10 @@ public class Main {
         Human me2 = new Human("b", "Aghamirzayev", 1999, 100, 4, "Go to course");
         Human me3 = new Human("C", "Aghamirzayev", 1999, 100, 4, "Go to course");
         Human me4 = new Human("D", "Aghamirzayev", 1999, 100, 4, "Go to course");
+
+
+        System.out.println(mother.toString());
+        System.out.println(father.toString());
         family.addChild(me);
         family.addChild(me1);
         family.addChild(me2);
