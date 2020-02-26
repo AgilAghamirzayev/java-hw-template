@@ -1,5 +1,7 @@
 package hw07;
 
+import java.util.Arrays;
+
 public class Family {
     Woman mother;
     Man father;
@@ -19,24 +21,23 @@ public class Family {
 
     public void addChild(Man child){
         count++;
-        children[temp] = child;
-        temp++;
+        children[temp++] = child;
 
     }
 
-    void deleteChild(int child){
-        if (temp + 1 - child >= 0) System.arraycopy(children, child+1, children, child, temp+1-child);
+    void deleteChild(int index){
+        int a=0;
+        for (int i = 0; i < temp ; i++) {
+            if (i == index - 1){ continue;}
+            children[a]=children[i];
+            a++;
+        }
+        System.out.println(temp);
         temp--;
         count--;
+        System.out.println(temp);
     }
 
-    public String toString(){
-        return "Family has" + this.count + " persons:"
-                + "\nfather: " + this.father.toString()
-                + "\nmother: " + this.mother.toString()
-                + "\nchildren: " + this.showChild()
-                + "\npet: " + pet.toString();
-    }
 
     private StringBuilder showChild(){
         StringBuilder sb = new StringBuilder();
@@ -48,7 +49,17 @@ public class Family {
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println("Object " + this.getClass().getName());
+        super.finalize();
     }
 
+    @Override
+    public String toString() {
+        return "Family{" +
+                "mother=" + mother +
+                ", father=" + father +
+                ", children=" + Arrays.toString(children) +
+                ", pet=" + pet +
+                ", count=" + count +
+                '}';
+    }
 }

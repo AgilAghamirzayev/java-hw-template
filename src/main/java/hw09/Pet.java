@@ -1,13 +1,13 @@
-package hw07;
+package hw09;
 
-import java.util.Objects;
+import java.util.HashSet;
 
 public abstract class Pet {
     private String nickname;
     private Species species;
     private int age;
     private int trickLevel;
-    private static String[] habits;
+    HashSet<String> habits = new HashSet<String>();
 
 
 
@@ -17,7 +17,9 @@ public abstract class Pet {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
-        habits = new String[]{habit1, habit2, habit3};
+        habits.add(habit1);
+        habits.add(habit2);
+        habits.add(habit3);
     }
 
 
@@ -29,14 +31,19 @@ public abstract class Pet {
         return String.format("%s{nickname=%s, age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, this.getHabits());
     }
     private String getHabits(){
-        StringBuilder sb = new StringBuilder();
-        for (String habit: habits) {
-            sb.append(" "+habit);
-        }
-        return sb.toString();
+       return habits.toString();
     }
 
+    public boolean equals(Object that){
+        if (this == that) return true;
+        if (hashCode(this) != hashCode(that)) return false;
+        if (!(that instanceof Pet)) return false;
+        return this.nickname.equals(((Pet) that).nickname)
+                && this.age == ((Pet) that).age
+                && this.species.equals(((Pet) that).species);
+    }
 
+    private int hashCode(Object pet){return hashCode();}
 
     @Override
     protected void finalize() {
@@ -50,19 +57,4 @@ public abstract class Pet {
 
     abstract void respond();
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pet pet = (Pet) o;
-        return age == pet.age &&
-                trickLevel == pet.trickLevel &&
-                nickname.equals(pet.nickname) &&
-                species == pet.species;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nickname, species, age, trickLevel);
-    }
 }
