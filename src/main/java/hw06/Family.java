@@ -1,5 +1,4 @@
 package hw06;
-
 public class Family {
 
     private Human mother;
@@ -7,7 +6,7 @@ public class Family {
     private Human[] children = new Human[10];
     private Pet pet;
     private int count = 0;
-    private static int temp = 0;
+    int temp = 0;
     public int coutFamily;
 
 
@@ -19,25 +18,34 @@ public class Family {
 
     public void addChild(Human child){
         count++;
-        children[temp] = child;
-        temp++;
+        children[temp++] = child;
     }
 
-    void deleteChild(int child){
-        if (temp + 1 - child >= 0) System.arraycopy(children, child+1, children, child, temp+1-child);
+    void deleteChild(int index){
+        int a=0;
+        for (int i = 0; i < temp ; i++) {
+            if (i == index - 1) continue;
+            children[a]=children[i];
+            a++;
+        }
         temp--;
         count--;
     }
 
-    public String toString(){
-        return "Family has" + this.count + " persons:"
-                + "\nfather: " + this.father.toString()
-                + "\nmother: " + this.mother.toString()
-                + "\nchildren: " + this.showChild()
-                + "\npet: " + pet.toString();
+    void deleteChild(Human human){
+        int a = 0;
+        for (int i = 0; i < temp ; i++) {
+            if (children[i]==human) continue;
+            children[a]=children[i];
+            a++;
+        }
+        temp--;
+        count--;
     }
 
-    private StringBuilder showChild(){
+
+
+    public StringBuilder showChild(){
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < temp ; i++) {
             sb.append(children[i].toString());
@@ -67,4 +75,18 @@ public class Family {
     }
 
     public int coutFamily(){return count;}
+
+    @Override
+    public String toString() {
+        return "Family{" +
+                "mother=" + mother +
+                ", father=" + father +
+                ", children=" + showChild() +
+                ", pet=" + pet +
+                ", coutFamily=" + coutFamily +
+                '}';
+    }
+
+
+
 }

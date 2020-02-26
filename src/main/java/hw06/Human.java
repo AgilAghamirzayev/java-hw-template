@@ -42,16 +42,20 @@ public class Human {
         return task;
     }
 
-    public String toString(){
-        return "Human name = " + this.name
-                + " surname = " + this.surname
-                + " year = " + this.year
-                + " iq = " + this.iq
-                + " schedule = " + this.getSchedule().toLowerCase();
 
-    }
     @Override
     protected void finalize(){
         System.out.println("Object has been deleted!");
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", year=" + year +
+                ", iq=" + iq +
+                ", task='" + task + '\'' +
+                "}\n";
     }
 }
