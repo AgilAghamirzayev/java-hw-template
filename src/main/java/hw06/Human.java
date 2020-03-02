@@ -1,5 +1,7 @@
 package hw06;
 
+import java.util.Objects;
+
 public class Human {
      public String name;
      public String surname;
@@ -59,5 +61,20 @@ public class Human {
                 "}\n";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return year == human.year &&
+                iq == human.iq &&
+                Objects.equals(name, human.name) &&
+                Objects.equals(surname, human.surname) &&
+                Objects.equals(task, human.task);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, year, iq, task);
+    }
 }

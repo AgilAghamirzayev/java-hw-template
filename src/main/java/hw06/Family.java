@@ -10,6 +10,7 @@ public class Family {
     public int coutFamily;
 
 
+
     Family(Human mother, Human father){
         count = 2;
         this.mother = mother;

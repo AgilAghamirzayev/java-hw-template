@@ -15,7 +15,7 @@ public class Pet {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
-        this.habits = habit.clone();
+        habits = habit.clone();
     }
 
     void setSpecies(String species){this.species = species;}

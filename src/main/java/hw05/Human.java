@@ -1,11 +1,11 @@
 package hw05;
 
 public class Human {
-     public String name;
-     public String surname;
-     public int year;
-     public int iq;
-     public static String[][] schedule = new String[][]{
+     private String name;
+     private String surname;
+     private int year;
+     private int iq;
+     private static String[][] schedule = new String[][]{
              {"Monday", " "},
              {"Tuesday", " "},
              {"Wednesday", " "},
@@ -14,11 +14,10 @@ public class Human {
              {"Saturday", " "},
              {"Sunday", " "}
      };
-     public String task;
+     private String task;
 
 
     public Human(){ }
-
 
     public Human(String name, String surname, int year, int iq, int day, String task){
         this.name = name;
@@ -33,7 +32,7 @@ public class Human {
             this.task = schedule[day-1][0]+ " " +task;
     }
 
-    private String getSchedule() {
+    public String getSchedule() {
         return task;
     }
 

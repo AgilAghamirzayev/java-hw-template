@@ -3,7 +3,7 @@ public class Family {
 
     private Human mother;
     private Human father;
-    public  Human[] children = new Human[5];
+    private   Human[] children = new Human[5];
     private Pet pet;
     private int count;
     private  int temp = 0;
@@ -27,10 +27,8 @@ public class Family {
             children[a]=children[i];
             a++;
         }
-        System.out.println(temp);
         temp--;
         count--;
-        System.out.println(temp);
     }
 
 

@@ -27,6 +27,7 @@ public class Main {
         family.eat();
         family.respond();
         family.foul();
+        System.out.println(father.getSchedule());
 
         Pet pet1 = new Pet("Cat", "Less", 3, 78, new String[]{"eat", "sleep", "play"});
         Pet pet2 = new Pet("Cat", "Less", 3,78, new String[]{"eat", "sleep", "play"});
