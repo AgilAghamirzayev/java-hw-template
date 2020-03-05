@@ -11,14 +11,9 @@ public class Human {
 
      HashMap<String, String> schedule = new HashMap<String, String>();
 
-
-
-
-
     public Human(){
         System.out.println("Object has been created!");
     }
-
 
     public Human(String name, String surname, int year, int iq, String day, String task){
         this.name = name;

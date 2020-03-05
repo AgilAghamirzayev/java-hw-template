@@ -20,14 +20,16 @@ public class Family {
 
     public void addChild(Man child){
         children.add(child);
+        count++;
     }
 
     void deleteChild(int child){
         children.remove(child);
+        count--;
     }
 
     public String toString(){
-        return "Family has" + this.count + " persons:"
+        return "Family has " + this.count + " persons:"
                 + "\nfather: " + this.father.toString()
                 + "\nmother: " + this.mother.toString()
                 + "\nchildren: " + this.showChild()
