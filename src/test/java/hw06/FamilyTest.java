@@ -31,7 +31,7 @@ class FamilyTest {
     @Test
     void deleteChild() {
         family1.addChild(child2);
-        family1.deleteChild(1);
+        family1.deleteChild(child1);
         int expect = 1;
         int actual = family1.temp;
         assertEquals(expect, actual);
