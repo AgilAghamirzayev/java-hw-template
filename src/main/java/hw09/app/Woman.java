@@ -1,10 +1,9 @@
-package hw09;
+package hw09.app;
 
 final class Woman extends Human {
 
-    Woman(String name,String surname,int year,int iq,String day,String task) {
-        super(name,surname,year,iq,day,task);
-        System.out.println("object of Woman class has been created");
+    public Woman(String name, String surname, int year) {
+        super(name, surname, year);
     }
 
     void greetPet() {

@@ -1,4 +1,4 @@
-package hw09;
+package hw09.app;
 
 public enum  DayOfWeek {
     MONDAY,

@@ -1,4 +1,4 @@
-package hw09;
+package hw09.app;
 
 import java.util.HashSet;
 
@@ -13,7 +13,7 @@ public abstract class Pet {
 
     public void setSpecies(Species species){this.species=species;}
 
-    Pet(String nickname, int age, int trickLevel, String habit1, String habit2, String habit3){
+    public Pet(String nickname, int age, int trickLevel, String habit1, String habit2, String habit3){
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -55,6 +55,6 @@ public abstract class Pet {
         System.out.println("I am eating");
     }
 
-    abstract void respond();
+    protected abstract void respond();
 
 }

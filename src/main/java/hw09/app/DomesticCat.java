@@ -1,4 +1,4 @@
-package hw09;
+package hw09.app;
 
 public class DomesticCat extends Pet implements Foulable {
     DomesticCat(String nickname, int age, int trickLevel, String habit1, String habit2, String habit3) {
@@ -12,7 +12,7 @@ public class DomesticCat extends Pet implements Foulable {
     }
 
     @Override
-    void respond() {
+    protected void respond() {
         System.out.println("I am a DomesticCat and it is my respond");
     }
 }

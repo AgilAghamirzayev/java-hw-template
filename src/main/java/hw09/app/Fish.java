@@ -1,4 +1,4 @@
-package hw09;
+package hw09.app;
 
 public class Fish extends Pet implements Foulable {
     Fish(String nickname, int age, int trickLevel, String habit1, String habit2, String habit3) {
@@ -7,7 +7,7 @@ public class Fish extends Pet implements Foulable {
     }
 
     @Override
-    void respond() {
+    protected void respond() {
         System.out.println("I amk a fish and it is my respond");
     }
 
