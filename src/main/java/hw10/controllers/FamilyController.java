@@ -1,14 +1,15 @@
-package hw09.controllers;
+package hw10.controllers;
 
-import hw09.app.Family;
-import hw09.app.Human;
-import hw09.app.Pet;
-import hw09.services.FamilyService;
+import hw10.app.Family;
+import hw10.app.Human;
+import hw10.app.Pet;
+import hw10.services.FamilyService;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FamilyController   {
+public class FamilyController {
 
     private final FamilyService familyService;
 
@@ -45,7 +46,7 @@ public class FamilyController   {
     }
 
 
-    public void bornChild(Family family, String gender) {
+    public void bornChild(Family family, String gender) throws ParseException {
         familyService.bornChild(family, gender);
     }
 

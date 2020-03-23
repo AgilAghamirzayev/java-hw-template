@@ -21,9 +21,12 @@ public class Main {
         family.setPet(catDomestic);
         family.setPet(cat);
         family.setPet(dog);
+        family.setPet(fish);
         family.deleteChild(1);
         System.out.println(family.toString());
         family.mother.makeUp();
+        family.mother.greetPet();
+        family.father.greetPet();
         family.father.repairCar();
 
 

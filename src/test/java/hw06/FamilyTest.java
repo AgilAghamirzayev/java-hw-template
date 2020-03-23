@@ -16,7 +16,7 @@ class FamilyTest {
     Family family1 = new Family(mother, father);
 
     @BeforeEach
-    public void setUp() throws Exception{
+    public void setUp(){
         family1.addChild(child1);
     }
 

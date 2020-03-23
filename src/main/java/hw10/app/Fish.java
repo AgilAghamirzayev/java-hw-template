@@ -1,4 +1,4 @@
-package hw09.app;
+package hw10.app;
 
 public class Fish extends Pet implements Foulable {
     public Fish(String nickname, int age, int trickLevel, String habit1, String habit2, String habit3) {

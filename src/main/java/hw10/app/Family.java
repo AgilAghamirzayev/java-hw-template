@@ -1,11 +1,13 @@
-package hw09.app;
+package hw10.app;
+
 import java.util.ArrayList;
+
 public class Family{
     Human mother;
     Human father;
     ArrayList<Pet> pets = new ArrayList<>();
-    public static int count = 0;
     public ArrayList<Human> children = new ArrayList<>();
+    public static int count = 0;
 
     public Family(Human father, Human mother){
         count = 2;
@@ -28,14 +30,19 @@ public class Family{
         count++;
     }
 
+    public void deleteChild(int child){
+        children.remove(child);
+        count--;
+    }
+
     @Override
     public String toString() {
-        return "Family {" +
-                "mother: " + mother +
-                ", father: " + father +
-                ", pets: " + pets +
-                ", children: " + children +
-                "}";
+        return "Family: " +
+                " \n        mother: " + mother +
+                ",\n        father: " + father +
+                ",\n        pets: " + pets +
+                ",\n        children: " + children +
+                "}\n";
     }
 
     private String  showChild(){

@@ -1,16 +1,18 @@
-package hw09.app;
+package hw11.app;
+
+import java.text.ParseException;
 
 public class Woman extends Human {
 
-    public Woman(String name, String surname, int year) {
+    public Woman(String name, String surname, String  year) throws ParseException {
         super(name, surname, year);
     }
 
-    void greetPet() {
+    public void greetPet() {
         System.out.println("GreetPet method from Woman Class");
     }
 
-    void makeUp() {
+    public void makeUp() {
         System.out.println("Mother has MakeUp");
     }
 }

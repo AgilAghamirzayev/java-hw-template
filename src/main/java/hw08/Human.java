@@ -9,7 +9,7 @@ public class Human {
      public int iq;
      public String task;
 
-     HashMap<String, String> schedule = new HashMap<String, String>();
+     HashMap<String, String> schedule = new HashMap<>();
 
     public Human(){
         System.out.println("Object has been created!");
@@ -27,8 +27,6 @@ public class Human {
         schedule.put(" "+day+" "," " + task);
     }
 
-    void greetPet(){}
-
     private String getSchedule() {
         return schedule.toString();
     }
@@ -41,8 +39,5 @@ public class Human {
                 + " schedule = " + this.getSchedule();
 
     }
-    @Override
-    protected void finalize(){
-        System.out.println("Object has been deleted!");
-    }
+
 }

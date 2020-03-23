@@ -3,11 +3,12 @@ package hw08;
 import java.util.ArrayList;
 
 public class Family {
+
     Woman mother;
     Man father;
-    ArrayList<Pet> pets = new ArrayList<Pet>();
-    private int count = 0;
-    ArrayList<Man> children = new ArrayList<Man>();
+    ArrayList<Pet> pets = new ArrayList<>();
+    private int count;
+    ArrayList<Human> children = new ArrayList<>();
 
 
     Family(Man father, Woman mother){
@@ -18,7 +19,7 @@ public class Family {
 
     void setPet(Pet pet){pets.add(pet);}
 
-    public void addChild(Man child){
+    public void addChild(Human child){
         children.add(child);
         count++;
     }
@@ -38,11 +39,6 @@ public class Family {
 
     private String  showChild(){
         return children.toString();
-    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        System.out.println("Object " + this.getClass().getName());
     }
 
 }

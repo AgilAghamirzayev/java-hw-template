@@ -1,8 +1,10 @@
-package hw09.app;
+package hw11.app;
+
+import java.text.ParseException;
 
 public class Man extends Human {
 
-    public Man(String name, String surname, int year) {
+    public Man(String name, String surname, String  year) throws ParseException {
         super(name, surname, year);
     }
 

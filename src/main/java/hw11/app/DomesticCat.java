@@ -1,4 +1,4 @@
-package hw09.app;
+package hw11.app;
 
 public class DomesticCat extends Pet implements Foulable {
     public DomesticCat(String nickname, int age, int trickLevel, String habit1, String habit2, String habit3) {

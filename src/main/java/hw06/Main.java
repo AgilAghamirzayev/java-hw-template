@@ -9,12 +9,14 @@ public class Main {
         Pet pet = new Pet(Species.CAT, "Less", 3, 78, new String[]{"eat", "sleep", "play"});
         Human me = new Human("Aqil", "Aghamirzayev", 1999, 100, 4, "Go to course");
         Human me1 = new Human("A", "Aghamirzayev", 1999, 100, 4, "Go to course");
+        Human me2 = new Human("A2", "Aghamirzayev", 1999, 100, 4, "Go to course");
 
 
         System.out.println(mother.toString());
         System.out.println(father.toString());
         family.addChild(me);
         family.addChild(me1);
+        family.deleteChild(me2);
 
 
         family.addPet(pet);
@@ -30,9 +32,6 @@ public class Main {
         if (pet1.equals(pet2)) System.out.println("They are same");
         else System.out.println("They are different");
 
-        for (int i = 0; i < 1000000 ; i++) {
-            Human human = new Human();
-        }
 
     }
 }

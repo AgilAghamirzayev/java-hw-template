@@ -1,5 +1,6 @@
-package hw09.dao;
-import hw09.app.Family;
+package hw11.dao;
+
+import hw11.app.Family;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -8,6 +9,10 @@ import java.util.Optional;
 public class FamilyDao implements DAO<Family> {
 
     List<Family> families = new LinkedList<>();
+
+    public FamilyDao() {
+        families.add(new Family());
+    }
 
     @Override
     public List<Family> getAllFamilies() {

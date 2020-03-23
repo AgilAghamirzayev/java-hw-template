@@ -1,16 +1,16 @@
-package hw09.dao;
-import hw09.app.Family;
+package hw10.dao;
+
+import hw10.app.Family;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-public class CollectionFamilyDao implements FamilyDao<Family> {
+public class FamilyDao implements DAO<Family> {
 
     List<Family> families = new LinkedList<>();
 
-
-    public CollectionFamilyDao() {
+    public FamilyDao() {
         families.add(new Family());
     }
 
