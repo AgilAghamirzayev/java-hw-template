@@ -37,7 +37,6 @@ public class Main {
         Pet domesticCat = new DomesticCat("Tommy",2,123,"swim","eat", "clean");
 
 
-
         familyController.createNewFamily(father1,mother1);
         familyController.createNewFamily(father2,mother2);
         familyController.createNewFamily(father3,mother3);
