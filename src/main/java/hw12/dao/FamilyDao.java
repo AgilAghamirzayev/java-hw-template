@@ -1,7 +1,8 @@
-package hw10.dao;
+package hw12.dao;
 
-import hw10.app.Family;
+import hw12.app.Family;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +10,6 @@ import java.util.Optional;
 public class FamilyDao implements DAO<Family> {
 
     List<Family> families = new LinkedList<>();
-
 
     @Override
     public List<Family> getAllFamilies() {
@@ -34,5 +34,6 @@ public class FamilyDao implements DAO<Family> {
     @Override
     public void saveFamily(Family family) {
         families.add(family);
+        families.remove(family);
     }
 }

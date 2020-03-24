@@ -10,10 +10,6 @@ public class FamilyDao implements DAO<Family> {
 
     List<Family> families = new LinkedList<>();
 
-    public FamilyDao() {
-        families.add(new Family());
-    }
-
     @Override
     public List<Family> getAllFamilies() {
         return families;
