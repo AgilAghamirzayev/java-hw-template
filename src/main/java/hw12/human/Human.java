@@ -6,10 +6,7 @@ import hw12.pet.Pet;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Human {
 
@@ -19,7 +16,7 @@ public class Human {
     private int iq;
     private Pet pet;
     private Family family;
-    private Map<String, ArrayList<String>> schedule = new HashMap<>();
+    private Map<String, List<String>> schedule = new HashMap<>();
 
 
     public Human(String name, String surname, long birthDate, Family family) {
@@ -30,7 +27,7 @@ public class Human {
         if ((family != null)) family.addChild(this);
     }
 
-    public Human(String name, String surname, long  year, Pet pet, Family family, Map<String, ArrayList<String>>  schedule ) {
+    public Human(String name, String surname, long  year, Pet pet, Family family, Map<String, List<String>>  schedule ) {
         this(name,surname,year,family);
         this.pet = pet;
         this.schedule = schedule;
@@ -42,6 +39,12 @@ public class Human {
         this.birthDate = year;
     }
 
+    public Human(String name, String surname, long birthDate, int iq) {
+        this.name = name;
+        this.surname = surname;
+        this.birthDate = birthDate;
+        this.iq = iq;
+    }
 
     public Human(String name, String surname, String birthDate, int iq) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -96,7 +99,7 @@ public class Human {
     }
 
 
-    public void setSchedule(Map<String, ArrayList<String>> schedule) {
+    public void setSchedule(Map<String, List<String>> schedule) {
         this.schedule = schedule;
     }
 

@@ -7,7 +7,6 @@ import hw12.human.Man;
 import hw12.human.Woman;
 import hw12.pet.Pet;
 
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
@@ -15,8 +14,11 @@ import java.util.stream.Collectors;
 
 public class FamilyService {
 
-    FamilyDao familyDao = new FamilyDao();
+    private FamilyDao familyDao;
 
+    public FamilyService(FamilyDao familyDao) {
+        this.familyDao = familyDao;
+    }
 
     public List<Family> getAllFamilies(){
         return familyDao.getAllFamilies();
@@ -48,7 +50,7 @@ public class FamilyService {
         return familyDao.deleteFamily(familyDao.getFamilyByIndex(index));
     }
 
-    public Family bornChild(Family family, String boyName, String girlName) throws ParseException {
+    public Family bornChild(Family family, String boyName, String girlName){
         if (!familyDao.getAllFamilies().contains(family)) familyDao.saveFamily(family);
         Random random = new Random();
         String surname = family.getFather().getSurname();

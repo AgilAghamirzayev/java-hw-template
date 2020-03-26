@@ -34,5 +34,6 @@ public class FamilyDao implements DAO<Family> {
     @Override
     public void saveFamily(Family family) {
         if (!families.contains(family)) families.add(family);
+
     }
 }

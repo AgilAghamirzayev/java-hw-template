@@ -90,7 +90,7 @@ public class Family{
                 mother,
                 father,
                 childInfo.toString().trim(),
-                pet.toString().replace("[", "")).replace("]","");
+                pet.toString());
     }
 
     public String prettyFormat(){
@@ -106,7 +106,7 @@ public class Family{
                     ,mother.toString()
                     ,father.toString()
                     ,childInfo
-                    ,pet.toString().replace("[", "").replace("]",""));
+                    ,pet.toString());
     }
 
 
