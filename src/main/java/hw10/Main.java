@@ -69,6 +69,9 @@ public class Main {
         controller.addPet(1,dog);
         controller.addPet(2,robotCat);
         controller.addPet(3,domesticCat);
+        controller.addPet(0,dog);
+        controller.addPet(0,robotCat);
+        controller.addPet(2,domesticCat);
 
         //born children
         controller.bornChild(controller.getFamilyById(0),"Ayxan","Ayan");

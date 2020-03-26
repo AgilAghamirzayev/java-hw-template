@@ -79,15 +79,17 @@ public class Family{
 
     public String toString(){
         StringBuilder childInfo = new StringBuilder();
-//        for (Human child: children) {
-//            childInfo.append(String.format("%s\n", child.toString()));
-//        }
-        children.forEach(child->childInfo.append(String.format("%s\n", child.toString())));
+        children.forEach(child->childInfo.append(String.format("                   %s\n", child.toString())));
 
-        return String.format("Family{ father =%s, mother =%s, children =%s",
-                father.getFullName(),
-                mother.getFullName(),
-                childInfo.toString().trim());
+        return String.format("Family: " +
+                        "\n         father: %s" +
+                        "\n         mother: %s," +
+                        "\n         children:\n                   %s" +
+                        "\n         pets: %s",
+                father,
+                mother,
+                childInfo.toString().trim(),
+                pet);
     }
 
 
