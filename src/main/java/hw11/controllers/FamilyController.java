@@ -1,20 +1,20 @@
 package hw11.controllers;
 
-import hw11.app.Family;
-import hw11.app.Human;
-import hw11.app.Pet;
+import hw11.human.Family;
+import hw11.human.Human;
+import hw11.pet.Pet;
 import hw11.services.FamilyService;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class FamilyController {
 
     private final FamilyService familyService;
 
-    public FamilyController() {
-        this.familyService = new FamilyService();
+    public FamilyController(FamilyService familyService) {
+        this.familyService = familyService;
     }
 
     public List<Family> getAllFamilies() {
@@ -33,8 +33,8 @@ public class FamilyController {
         familyService.getFamiliesLessThan(size);
     }
 
-    public void countFamiliesWithMemberNumber() {
-        familyService.countFamiliesWithMemberNumber();
+    public int countFamiliesWithMemberNumber(int number) {
+        return familyService.countFamiliesWithMemberNumber(number);
     }
 
     public void createNewFamily(Human father, Human mother) {
@@ -46,12 +46,12 @@ public class FamilyController {
     }
 
 
-    public void bornChild(Family family, String gender) throws ParseException {
-        familyService.bornChild(family, gender);
+    public void bornChild(Family family, String boyName, String girlName) throws ParseException {
+        familyService.bornChild(family, boyName, girlName);
     }
 
-    public void adoptChild(Family family, Human human) {
-        familyService.adoptChild(family, human);
+    public Family adoptChild(Family family, Human human) {
+        return familyService.adoptChild(family, human);
     }
 
     public void deleteAllChildrenOlderThen(int age) {
@@ -68,7 +68,7 @@ public class FamilyController {
     }
 
 
-    public ArrayList<Pet> getPets(int id) {
+    public Set<Pet> getPets(int id) {
         return familyService.getPets(id);
     }
 

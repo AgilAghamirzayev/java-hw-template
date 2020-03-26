@@ -1,7 +1,9 @@
-package hw10;
+package hw11;
 
-import hw10.human.Human;
-import hw10.human.Man;
+
+
+import hw11.human.Human;
+import hw11.human.Man;
 
 import java.time.LocalDate;
 

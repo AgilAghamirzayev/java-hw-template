@@ -1,6 +1,7 @@
 package hw09.app;
 
 import java.util.HashSet;
+import java.util.Objects;
 
 public abstract class Pet {
     private String nickname;
@@ -31,16 +32,24 @@ public abstract class Pet {
         return String.format("%s{nickname=%s, age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, this.getHabits());
     }
     private String getHabits(){
-       return habits.toString();
+        return habits.toString();
     }
 
-    public boolean equals(Object that){
-        if (this == that) return true;
-        if (hashCode(this) != hashCode(that)) return false;
-        if (!(that instanceof Pet)) return false;
-        return this.nickname.equals(((Pet) that).nickname)
-                && this.age == ((Pet) that).age
-                && this.species.equals(((Pet) that).species);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pet pet = (Pet) o;
+        return age == pet.age &&
+                trickLevel == pet.trickLevel &&
+                Objects.equals(nickname, pet.nickname) &&
+                species == pet.species &&
+                Objects.equals(habits, pet.habits);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nickname, species, age, trickLevel, habits);
     }
 
     private int hashCode(Object pet){return hashCode();}

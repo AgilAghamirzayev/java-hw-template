@@ -1,11 +1,17 @@
 package hw10.services;
 
-import hw10.app.*;
 import hw10.dao.FamilyDao;
+import hw10.human.Family;
+import hw10.human.Human;
+import hw10.human.Man;
+import hw10.human.Woman;
+import hw10.pet.Pet;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class FamilyService {
 
@@ -17,51 +23,65 @@ public class FamilyService {
     }
 
     public void displayAllFamilies(){
-        familyDao.getAllFamilies().forEach(System.out::println);
+        familyDao.getAllFamilies().forEach(family -> System.out.printf("%d, %s\n", getAllFamilies().indexOf(family)+1,family.toString()));
     }
 
     public void getFamiliesBiggerThan(int size){
-             familyDao.getAllFamilies().stream().filter(i-> Family.count>size).forEach(System.out::println);
+             familyDao.getAllFamilies().stream().filter(family-> family.countFamily()>size).forEach(family -> System.out.printf("%s\n", family.toString()));
     }
 
     public void getFamiliesLessThan(int size){
-       familyDao.getAllFamilies().stream().filter(i-> Family.count<size).forEach(System.out::println);
+       familyDao.getAllFamilies().stream().filter(family-> family.countFamily()<size).forEach(family -> System.out.printf("%s\n",family.toString()));
     }
 
-    public void countFamiliesWithMemberNumber(){
-        familyDao.getAllFamilies().stream().filter(i->familyDao.getAllFamilies().size()== Family.count).forEach(System.out::println);
+    public int countFamiliesWithMemberNumber(int memberCount){
+        List<Family> families = familyDao.getAllFamilies();
+        families = families.stream().filter(family -> family.countFamily() == memberCount).collect(Collectors.toList());
+        return families.size();
     }
 
     public void createNewFamily(Human father, Human mother){
-        familyDao.getAllFamilies().add(new Family( father, mother));
+        familyDao.saveFamily(new Family( father, mother));
     }
 
-    public void deleteFamilyByIndex(int index){
-        familyDao.getAllFamilies().remove(index);
+    public boolean deleteFamilyByIndex(int index){
+        return familyDao.deleteFamily(familyDao.getFamilyByIndex(index));
     }
 
-    public Family bornChild(Family family, String gender) throws ParseException {
-        System.out.println(family.toString());
-        if (gender.equals("masculine")){
-            Human me =  new Man("Aqil", "Aghamirzayev","01/07/1999",111,"","");
-            family.addChild(me);
-        } else if (gender.equals("feminine")){
-            Human me =  new Woman("Aysu", "Aghamirzayeva", "08/08/2003",99,"","");
-            family.addChild(me);
-        }
+    public Family bornChild(Family family, String boyName, String girlName) throws ParseException {
+        if (!familyDao.getAllFamilies().contains(family)) familyDao.saveFamily(family);
+        Random random = new Random();
+        String surname = family.getFather().getSurname();
+        LocalDate birthDate = LocalDate.now();
+        Human child;
+        if (random.nextBoolean()) child = new Man(boyName,surname, birthDate.toEpochDay(), family);
+        else child = new Woman(girlName, surname, birthDate.toEpochDay(), family);
+        family.addChild(child);
         return family;
     }
 
     public Family adoptChild(Family family, Human human){
-        family.addChild(human);
+        if (getAllFamilies().contains(family)) family.addChild(human);
+        else {
+            family.addChild(human);
+            familyDao.saveFamily(family);
+        }
         return family;
     }
 
-    public List<Family> deleteAllChildrenOlderThen(int age){
-        for (int i = 0; i <familyDao.getAllFamilies().size(); i++) {
-                familyDao.getAllFamilies().get(i).children.stream().filter(k-> k.birthDate < age);
-        }
-        return familyDao.getAllFamilies();
+    public void  deleteAllChildrenOlderThen(int age){
+        LocalDate year = LocalDate.now();
+
+        getAllFamilies().forEach(family -> {
+            Iterator<Human> humanIterator = family.getChildren().iterator();
+            ArrayList<Human> youngChildren = new ArrayList<>();
+            while (humanIterator.hasNext()){
+                Human human = humanIterator.next();
+                if (Period.between(LocalDate.ofEpochDay(human.getYear()), year).getYears() < age)
+                    youngChildren.add(human);
+            }
+            family.setChildren(youngChildren);
+        });
     }
 
 
@@ -70,15 +90,15 @@ public class FamilyService {
     }
 
     public Family getFamilyById(int id){
-        return familyDao.getAllFamilies().get(id);
+        return familyDao.getFamilyByIndex(id);
     }
 
-    public ArrayList<Pet> getPets(int id){
-        return familyDao.getAllFamilies().get(id).getPets();
+    public Set<Pet> getPets(int id){
+        return getFamilyById(id).getPet();
     }
 
     public void addPet(int index, Pet pet){
-        familyDao.getAllFamilies().get(index).getPets().add(pet);
+        getFamilyById(index).addPet(pet);
     }
 
 

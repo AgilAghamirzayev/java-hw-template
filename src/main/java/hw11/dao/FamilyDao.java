@@ -1,14 +1,14 @@
 package hw11.dao;
 
-import hw11.app.Family;
+import hw11.human.Family;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 public class FamilyDao implements DAO<Family> {
 
     List<Family> families = new LinkedList<>();
+
 
     @Override
     public List<Family> getAllFamilies() {
@@ -16,8 +16,9 @@ public class FamilyDao implements DAO<Family> {
     }
 
     @Override
-    public Optional<Family> getFamilyByIndex(int index) {
-        return Optional.ofNullable(families.get(index));
+    public Family getFamilyByIndex(int index) {
+        if (families.isEmpty()) return null;
+        else return families.get(index);
     }
 
     @Override
@@ -32,6 +33,6 @@ public class FamilyDao implements DAO<Family> {
 
     @Override
     public void saveFamily(Family family) {
-        families.add(family);
+        if (!families.contains(family)) families.add(family);
     }
 }
