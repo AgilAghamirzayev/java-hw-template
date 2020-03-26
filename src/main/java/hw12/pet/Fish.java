@@ -1,4 +1,4 @@
-package hw10.pet;
+package hw12.pet;
 
 import java.util.List;
 import java.util.Random;
@@ -9,6 +9,14 @@ public class Fish extends Pet implements Foulable {
     public Fish( String nickname, int age, int trickLevel, List<String> habits) {
         super( nickname, age, trickLevel, habits);
         setSpecies(Species.FISH);
+    }
+
+    public Fish(Species species, String  nickname) {
+        super(nickname);
+        this.setSpecies(species);
+    }
+
+    public Fish() {
     }
 
     @Override

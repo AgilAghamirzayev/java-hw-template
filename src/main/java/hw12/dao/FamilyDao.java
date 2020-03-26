@@ -1,6 +1,6 @@
-package hw10.dao;
+package hw12.dao;
 
-import hw10.human.Family;
+import hw12.human.Family;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,29 +1,27 @@
-package hw10;
+package hw12;
 
-import hw10.dao.FamilyDao;
-import hw10.controllers.FamilyController;
-import hw10.human.*;
-import hw10.pet.*;
-import hw10.services.FamilyService;
+import hw12.controllers.FamilyController;
+import hw12.human.Family;
+import hw12.human.Human;
+import hw12.human.Man;
+import hw12.human.Woman;
+import hw12.pet.*;
+import hw12.services.FamilyService;
 
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Arrays;
 
 
 public class Main {
 
     public static void main(String[] args) throws ParseException {
 
-        FamilyDao dao = new FamilyDao();
-        FamilyService service = new FamilyService(dao);
+        FamilyService service = new FamilyService();
         FamilyController controller = new FamilyController(service);
 
         //initializations fathers & mothers
-        Human father1 = new Man("A", "Aa", LocalDate.of(1960, 10, 18).toEpochDay(),new Fish("Memo",2,112, Arrays.asList("swim","clean","jump")),null,new HashMap<String , List<String>>() {{
-                put(DayOfWeek.FRIDAY.toString(), Arrays.asList("relax","go to movie"));
-                put(DayOfWeek.THURSDAY.toString(), Arrays.asList("sport","do smt"));
-            }});
+        Human father1 = new Man("A", "Aa", LocalDate.of(1960, 10, 18).toEpochDay());
         Human mother1 = new Woman("A", "Aa", LocalDate.of(1960, 10, 18).toEpochDay());
         Human father2 = new Man("B", "Bb", LocalDate.of(1960, 10, 18).toEpochDay());
         Human mother2 = new Woman("B", "Bb", LocalDate.of(1960, 10, 18).toEpochDay());
@@ -115,13 +113,5 @@ public class Main {
         //getPets
         System.out.println("Pets of the family2: "+ controller.getPets(1).toString());
 
-        //describeAge
-        System.out.println(father1.describeAge());
-
-        //greetPet
-        father1.greetPet();
-
-        //describePet
-        father1.describePet();
     }
 }

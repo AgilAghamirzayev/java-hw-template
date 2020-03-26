@@ -1,27 +1,27 @@
-package hw11.pet;
+package hw12.pet;
 
 import java.util.List;
 import java.util.Random;
 
-public class RoboCat extends Pet implements Foulable {
+public class DomesticCat extends Pet implements Foulable {
 
     private Random random = new Random();
-    public RoboCat(String nickname, int age, int trickLevel, List<String> habits) {
+    public DomesticCat(String nickname, int age, int trickLevel, List<String> habits) {
         super( nickname, age, trickLevel, habits);
-        this.setSpecies(Species.ROBOCAT);
+        this.setSpecies(Species.DOMESTIC_CAT);
     }
 
-    public RoboCat(Species species, String  nickname) {
+    public DomesticCat(Species species, String  nickname) {
         super(nickname);
         this.setSpecies(species);
     }
 
-    public RoboCat() {
+    public DomesticCat() {
     }
 
     @Override
     public void foul() {
-        System.out.println( String.format("I am a RobotCat, %d", random.nextInt(254)));
+        System.out.println( String.format("I am a DomesticCat, %d", random.nextInt(254)));
     }
 
     @Override

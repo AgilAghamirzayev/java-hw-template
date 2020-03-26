@@ -11,6 +11,10 @@ public class Man extends Human {
         super(name, surname, year, family);
     }
 
+    public Man(String name, String surname, long  year){
+        super(name, surname, year);
+    }
+
     public Man(String name, String surname, long year, Pet pet, Family family, Map<String, ArrayList<String>> schedule){
         super(name, surname, year, pet, family, schedule);
     }

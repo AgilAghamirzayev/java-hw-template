@@ -1,13 +1,15 @@
-package hw10.human;
+package hw12.human;
 
 
-import hw10.pet.Pet;
-import sun.plugin.javascript.navig.Link;
+import hw12.pet.Pet;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Human {
 
@@ -17,7 +19,7 @@ public class Human {
     private int iq;
     private Pet pet;
     private Family family;
-    private Map<String, List<String>> schedule = new HashMap<>();
+    private Map<String, ArrayList<String>> schedule = new HashMap<>();
 
 
     public Human(String name, String surname, long birthDate, Family family) {
@@ -28,7 +30,7 @@ public class Human {
         if ((family != null)) family.addChild(this);
     }
 
-    public Human(String name, String surname, long  year, Pet pet, Family family, Map<String, List<String>>  schedule ) {
+    public Human(String name, String surname, long  year, Pet pet, Family family, Map<String, ArrayList<String>>  schedule ) {
         this(name,surname,year,family);
         this.pet = pet;
         this.schedule = schedule;
@@ -94,7 +96,7 @@ public class Human {
     }
 
 
-    public void setSchedule(Map<String, List<String>> schedule) {
+    public void setSchedule(Map<String, ArrayList<String>> schedule) {
         this.schedule = schedule;
     }
 

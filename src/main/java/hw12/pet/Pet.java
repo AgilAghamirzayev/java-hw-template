@@ -1,4 +1,4 @@
-package hw10.pet;
+package hw12.pet;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -57,7 +57,8 @@ public abstract class Pet {
     }
 
     public String toString(){
-        return String.format("\n                   %s{ nickname=%s, age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, this.getHabits());
+        //return String.format("%s{nickname=%s, age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, this.getHabits());
+        return String.format("{My name is %s, I am a %s}", nickname, species);
     }
 
     @Override

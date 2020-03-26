@@ -2,7 +2,6 @@ package hw10.pet;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class DomesticCat extends Pet implements Foulable {
 

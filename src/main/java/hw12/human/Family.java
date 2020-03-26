@@ -1,6 +1,6 @@
-package hw11.human;
+package hw12.human;
 
-import hw11.pet.Pet;
+import hw12.pet.Pet;
 
 import java.util.*;
 
@@ -80,17 +80,33 @@ public class Family{
 
     public String toString(){
         StringBuilder childInfo = new StringBuilder();
-        children.forEach(child->childInfo.append(String.format("                   %s\n", child.toString())));
+        children.forEach(child->childInfo.append(String.format("\t\t\t\t%s\n", child.toString())));
 
         return String.format("Family: " +
-                        "\n         father: %s" +
-                        "\n         mother: %s," +
-                        "\n         children:\n                   %s" +
-                        "\n         pets: %s",
-                father,
+                        "\n\t\tfather: %s" +
+                        "\n\t\tmother: %s," +
+                        "\n\t\tchildren:\n\t\t\t\t%s" +
+                        "\n\t\tpets: %s",
                 mother,
+                father,
                 childInfo.toString().trim(),
-                pet);
+                pet.toString().replace("[", "")).replace("]","");
+    }
+
+    public String prettyFormat(){
+        StringBuilder childInfo = new StringBuilder();
+        children.forEach(child -> {
+            if (child instanceof Man) childInfo.append(String.format("\t\t\t\tboy: %s\n", child.toString()));
+            if (child instanceof Woman)childInfo.append(String.format("\t\t\t\tgirl: %s\n",child.toString())); });
+        return String.format("family:" +
+                        "\n\t\tfather: %s" +
+                        "\n\t\tmother: %s" +
+                        "\n\t\tchildren:\n%s" +
+                        "\t\tpets: %s\n\t\t"
+                    ,mother.toString()
+                    ,father.toString()
+                    ,childInfo
+                    ,pet.toString().replace("[", "").replace("]",""));
     }
 
 

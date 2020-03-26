@@ -1,6 +1,6 @@
-package hw11.human;
+package hw12.human;
 
-import hw11.pet.Pet;
+import hw12.pet.Pet;
 
 import java.util.ArrayList;
 import java.util.Map;

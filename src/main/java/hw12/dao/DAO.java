@@ -1,4 +1,4 @@
-package hw10.dao;
+package hw12.dao;
 import java.util.List;
 
 public interface DAO<T>{

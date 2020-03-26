@@ -2,7 +2,6 @@ package hw10.pet;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class RoboCat extends Pet implements Foulable {
 
@@ -10,14 +9,6 @@ public class RoboCat extends Pet implements Foulable {
     public RoboCat(String nickname, int age, int trickLevel, List<String> habits) {
         super( nickname, age, trickLevel, habits);
         this.setSpecies(Species.ROBOCAT);
-    }
-
-    public RoboCat(Species species, String  nickname) {
-        super(nickname);
-        this.setSpecies(species);
-    }
-
-    public RoboCat() {
     }
 
     @Override

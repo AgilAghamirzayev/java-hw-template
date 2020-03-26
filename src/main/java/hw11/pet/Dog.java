@@ -1,13 +1,13 @@
 package hw11.pet;
 
+import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class Dog extends Pet implements Foulable {
     private Random random = new Random();
-    public Dog(Species species, String nickname, int age, int trickLevel, Set<String> habits) {
+    public Dog( String nickname, int age, int trickLevel, List<String> habits) {
         super( nickname, age, trickLevel, habits);
-        this.setSpecies(species);
+        this.setSpecies(Species.DOG);
     }
 
     public Dog(Species species, String  nickname) {

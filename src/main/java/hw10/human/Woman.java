@@ -3,6 +3,7 @@ package hw10.human;
 import hw10.pet.Pet;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Woman extends Human {
@@ -11,11 +12,11 @@ public class Woman extends Human {
         super(name, surname, year);
     }
 
-    public Woman(String name, String surname, long  year,Family family){
+    public Woman(String name, String surname, long  year, Family family){
         super(name, surname, year, family);
     }
 
-    public Woman(String name, String surname, long year, Pet pet, Family family, Map<String, ArrayList<String>> schedule){
+    public Woman(String name, String surname, long year, Pet pet, Family family, Map<String, List<String>> schedule){
         super(name, surname, year, pet, family, schedule);
     }
 
