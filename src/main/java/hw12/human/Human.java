@@ -123,7 +123,7 @@ public class Human {
 
 
     public String toString(){
-        return String.format("Human{ name = '%s', surname ='%s', birth date ='%s', iq = %d, schedule =%s}",
+        return String.format("{ name = '%s', surname ='%s', birth date ='%s', iq = %d, schedule =%s}",
                 name,
                 surname,
                 LocalDate.ofEpochDay(birthDate).format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),

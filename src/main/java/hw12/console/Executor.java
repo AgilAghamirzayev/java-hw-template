@@ -51,7 +51,7 @@ public class Executor {
             put(DayOfWeek.SUNDAY.toString(), Arrays.asList("relax","go to movie"));
             put(DayOfWeek.WEDNESDAY.toString(), Arrays.asList("school","do smt"));
         }});
-        Human child2 = new Man("Aysu", "Valiyeva", LocalDate.of(2017, 8, 9).toEpochDay(),fish,null,new HashMap<String , List<String>>() {{
+        Human child2 = new Woman("Aysu", "Valiyeva", LocalDate.of(2017, 8, 9).toEpochDay(),fish,null,new HashMap<String , List<String>>() {{
             put(DayOfWeek.MONDAY.toString(), Arrays.asList("relax","go to movie"));
             put(DayOfWeek.TUESDAY.toString(), Arrays.asList("school","do smt"));
         }});
@@ -88,7 +88,7 @@ public class Executor {
     public void countFamiliesWithMemberNumber(){
         System.out.print("request a number one you interested in: ");
         int a = Integer.parseInt(scanner.nextLine());
-        controller.countFamiliesWithMemberNumber(a);
+        System.out.println(controller.countFamiliesWithMemberNumber(a));
     }
 
     public void createNewFamily(){
@@ -119,7 +119,7 @@ public class Executor {
         System.out.print("Enter father's iq: ");
         int fiq = Integer.parseInt(scanner.nextLine());
 
-        Human mother = new Man(name,surname,LocalDate.of(birthYear,birthMonth,birthDay).toEpochDay(),iq);
+        Human mother = new Woman(name,surname,LocalDate.of(birthYear,birthMonth,birthDay).toEpochDay(),iq);
         Human father = new Man(fname,fsurname,LocalDate.of(fbirthYear,fbirthMonth,fbirthDay).toEpochDay(),fiq);
 
         controller.createNewFamily(father,mother);
@@ -131,6 +131,7 @@ public class Executor {
         System.out.print("Enter family id: ");
         int a = Integer.parseInt(scanner.nextLine());
         controller.deleteFamilyByIndex(a);
+        System.out.println("Deleted!!!");
     }
 
 
@@ -143,6 +144,7 @@ public class Executor {
         System.out.print("Enter girl's name: ");
         String girlName = scanner.nextLine();
         controller.bornChild(controller.getFamilyById(a),boyName,girlName);
+        System.out.println("Borned!!!");
     }
 
     public void adoptChild(){
@@ -158,12 +160,14 @@ public class Executor {
         int iq = Integer.parseInt(scanner.nextLine());
         Human human = new Human(name,surname,yearOfBirth,iq);
         controller.adoptChild(controller.getFamilyById(a),human);
+        System.out.println("Adopted!!!");
     }
 
     public void deleteOlderChildren(){
         System.out.println("Enter interested age: ");
         int s = Integer.parseInt(scanner.nextLine());
         controller.deleteAllChildrenOlderThen(s);
+        System.out.println("Deleted!!!");
     }
 
 }
