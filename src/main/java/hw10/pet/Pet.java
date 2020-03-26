@@ -1,8 +1,6 @@
 package hw10.pet;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public abstract class Pet {
 
@@ -10,9 +8,9 @@ public abstract class Pet {
     private Species species;
     private int age;
     private int trickLevel;
-    private Set<String> habits = new HashSet<>();
+    private List<String> habits = new LinkedList<>();
 
-    public Pet(String nickname, int age, int trickLevel, Set<String> habits){
+    public Pet(String nickname, int age, int trickLevel, List<String> habits){
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -48,7 +46,7 @@ public abstract class Pet {
         return trickLevel;
     }
 
-    public Set<String> getHabits() {
+    public List<String> getHabits() {
         return habits;
     }
 

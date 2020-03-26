@@ -1,14 +1,15 @@
 package hw10.pet;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
 public class DomesticCat extends Pet implements Foulable {
 
     private Random random = new Random();
-    public DomesticCat(Species species, String nickname, int age, int trickLevel, Set<String> habits) {
+    public DomesticCat(String nickname, int age, int trickLevel, List<String> habits) {
         super( nickname, age, trickLevel, habits);
-        this.setSpecies(species);
+        this.setSpecies(Species.DOMESTIC_CAT);
     }
 
     public DomesticCat(Species species, String  nickname) {

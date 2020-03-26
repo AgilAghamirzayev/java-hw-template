@@ -7,6 +7,10 @@ import java.util.Map;
 
 public class Woman extends Human {
 
+    public Woman(String name, String surname, long  year){
+        super(name, surname, year);
+    }
+
     public Woman(String name, String surname, long  year,Family family){
         super(name, surname, year, family);
     }
@@ -14,6 +18,7 @@ public class Woman extends Human {
     public Woman(String name, String surname, long year, Pet pet, Family family, Map<String, ArrayList<String>> schedule){
         super(name, surname, year, pet, family, schedule);
     }
+
 
     public Woman(String name, String surname, String birthday, int iq){
         super(name, surname, birthday, iq);

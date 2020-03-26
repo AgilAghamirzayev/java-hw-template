@@ -19,7 +19,7 @@ public class Human {
     private Map<String, ArrayList<String>> schedule = new HashMap<>();
 
 
-    public Human(String name, String surname, long  birthDate, Family family) {
+    public Human(String name, String surname, long birthDate, Family family) {
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
@@ -33,6 +33,13 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public Human(String name, String surname, long year) {
+        this.name = name;
+        this.surname = surname;
+        this.birthDate = year;
+    }
+
+
     public Human(String name, String surname, String birthDate, int iq) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         this.name = name;
@@ -40,6 +47,8 @@ public class Human {
         this.birthDate = LocalDate.parse(birthDate,formatter).toEpochDay();
         this.iq = iq;
     }
+
+
 
     public String  describeAge(){
         LocalDate date = LocalDate.ofEpochDay(birthDate);
