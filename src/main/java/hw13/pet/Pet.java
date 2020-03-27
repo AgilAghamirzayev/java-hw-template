@@ -59,24 +59,8 @@ public abstract class Pet implements Serializable {
     }
 
     public String toString(){
-        //return String.format("%s{nickname=%s, age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, this.getHabits());
-        return String.format("{My name is %s, I am a %s}", nickname, species);
+        return String.format("\n\t\t\t\t%s {nickname=%s, age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, this.getHabits());
+        //return String.format("{My name is %s, I am a %s}", nickname, species);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pet pet = (Pet) o;
-        return age == pet.age &&
-                trickLevel == pet.trickLevel &&
-                Objects.equals(nickname, pet.nickname) &&
-                species == pet.species &&
-                Objects.equals(habits, pet.habits);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nickname, species, age, trickLevel, habits);
-    }
 }
