@@ -6,10 +6,10 @@ import hw13.pet.Pet;
 import hw13.pet.RoboCat;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.util.*;
 
-public class FamilyDao implements DAO<Family>{
+public class FamilyDao implements DAO<Family>, Serializable{
+    private static final long serialVersionUID = 1L;
 
     private static List<Family> families = new LinkedList<>();
 
@@ -49,14 +49,14 @@ public class FamilyDao implements DAO<Family>{
     }
 
     @Override
-    public Collection<Family> loadData() throws IOException {
+    public Collection<Family> loadData() {
         File file = new File("Family.txt");
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))){
             if(file.length() == 0) return null;
-            return (Collection<Family>) ois.readObject();
-        }catch (FileNotFoundException | ClassNotFoundException e){
+            return (List<Family>) ois.readObject();
+        }catch (IOException | ClassNotFoundException e){
             e.printStackTrace();
-            return (Collection<Family>) new Family(null,null);
+            return (List<Family>) new Family(null,null);
         }
     }
 

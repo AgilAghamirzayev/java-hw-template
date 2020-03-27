@@ -1,6 +1,5 @@
 package hw13.services;
 
-import hw13.dao.DAO;
 import hw13.dao.FamilyDao;
 import hw13.exception.FamilyOverflowException;
 import hw13.human.Family;
@@ -16,7 +15,9 @@ import java.time.Period;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FamilyService {
+public class FamilyService implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private FamilyDao familyDao;
 
     public FamilyService(FamilyDao familyDao) {
@@ -119,7 +120,6 @@ public class FamilyService {
 
     public void saveData(){
         familyDao.saveData();
-        System.out.println("All datas were saved!");
     }
 
 }

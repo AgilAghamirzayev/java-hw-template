@@ -8,10 +8,12 @@ import java.util.Scanner;
 public class Console implements Serializable{
     private static final long serialVersionUID = 1L;
 
-    private static Scanner scanner = new Scanner(System.in);
+
     private static Executor executor = new Executor();
     private static UserMenu userMenu = new UserMenu();
     private static EditFamily editFamily = new EditFamily();
+    private static Scanner scanner = new Scanner(System.in);
+
 
     public static void editFamily() throws ParseException, IOException {
 

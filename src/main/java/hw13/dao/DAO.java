@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public interface DAO<T>{
 
-     Collection<T> getAllFamilies();
+     Collection<T> getAllFamilies() throws IOException;
      T getFamilyByIndex(int index);
      boolean deleteFamily(T family);
      boolean deleteFamily(int index);

@@ -24,11 +24,11 @@ import java.util.Scanner;
 public class Executor implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    Scanner scanner = new Scanner(System.in);
+
     FamilyDao dao = new FamilyDao();
     FamilyService service = new FamilyService(dao);
     FamilyController controller = new FamilyController(service);
-
+    private static Scanner scanner = new Scanner(System.in);
     public void fillWithTestData(){
 
         Pet fish = new Fish("Memo",2,109, Arrays.asList("swim","clean","jump"));
