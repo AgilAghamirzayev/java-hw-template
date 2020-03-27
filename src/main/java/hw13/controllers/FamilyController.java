@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 public class FamilyController implements Serializable{
-    private static final long serialVersionUID = -653345678740057348L;
+    private static final long serialVersionUID = 1L;
 
 
     private final FamilyService familyService;
@@ -51,7 +51,7 @@ public class FamilyController implements Serializable{
     }
 
 
-    public void bornChild(Family family, String boyName, String girlName) throws ParseException {
+    public void bornChild(Family family, String boyName, String girlName) {
         familyService.bornChild(family, boyName, girlName);
     }
 
