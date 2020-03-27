@@ -1,7 +1,4 @@
-package hw12.dao;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
-import java.io.IOException;
+package hw13.dao;
 import java.util.List;
 
 public interface DAO<T>{
@@ -11,5 +8,6 @@ public interface DAO<T>{
      boolean deleteFamily(T family);
      boolean deleteFamily(int index);
      void saveFamily(T family);
+     void loadData();
 
 }

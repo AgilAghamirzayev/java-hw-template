@@ -1,18 +1,21 @@
-package hw12.services;
+package hw13.services;
 
-import hw12.dao.FamilyDao;
-import hw12.human.Family;
-import hw12.human.Human;
-import hw12.human.Man;
-import hw12.human.Woman;
-import hw12.pet.Pet;
+import hw13.dao.FamilyDao;
+import hw13.exception.FamilyOverflowException;
+import hw13.human.Family;
+import hw13.human.Human;
+import hw13.human.Man;
+import hw13.human.Woman;
+import hw13.pet.Pet;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FamilyService {
+public class FamilyService implements Serializable{
+    private static final long serialVersionUID = 1L;
 
     private FamilyDao familyDao;
 
@@ -25,15 +28,15 @@ public class FamilyService {
     }
 
     public void displayAllFamilies(){
-        familyDao.getAllFamilies().forEach(family -> System.out.printf("%d. %s\n", getAllFamilies().indexOf(family)+1,family.toString()));
+        familyDao.getAllFamilies().forEach(family -> System.out.printf("%d. %s\n", getAllFamilies().indexOf(family)+1,family.prettyFormat()));
     }
 
     public void getFamiliesBiggerThan(int size){
-             familyDao.getAllFamilies().stream().filter(family-> family.countFamily()>size).forEach(family -> System.out.printf("%s\n", family.toString()));
+             familyDao.getAllFamilies().stream().filter(family-> family.countFamily()>size).forEach(family -> System.out.printf("%s\n", family.prettyFormat()));
     }
 
     public void getFamiliesLessThan(int size){
-       familyDao.getAllFamilies().stream().filter(family-> family.countFamily()<size).forEach(family -> System.out.printf("%s\n",family.toString()));
+       familyDao.getAllFamilies().stream().filter(family-> family.countFamily()<size).forEach(family -> System.out.printf("%s\n",family.prettyFormat()));
     }
 
     public int countFamiliesWithMemberNumber(int memberCount){
@@ -45,6 +48,7 @@ public class FamilyService {
 
     public void createNewFamily(Human father, Human mother){
         familyDao.saveFamily(new Family( father, mother));
+        loadData();
     }
 
     public boolean deleteFamilyByIndex(int index){
@@ -59,7 +63,12 @@ public class FamilyService {
         Human child;
         if (random.nextBoolean()) child = new Man(boyName,surname, birthDate.toEpochDay(), family);
         else child = new Woman(girlName, surname, birthDate.toEpochDay(), family);
-        family.addChild(child);
+        try {
+            family.addChild(child);
+        } catch (FamilyOverflowException e){
+            throw e;
+        }
+
         return family;
     }
 
@@ -104,5 +113,9 @@ public class FamilyService {
         getFamilyById(index).addPet(pet);
     }
 
+    public void loadData(){
+        familyDao.loadData();
+        System.out.println("Data Loaded!!!");
+    }
 
 }

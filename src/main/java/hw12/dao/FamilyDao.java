@@ -2,13 +2,18 @@ package hw12.dao;
 
 import hw12.human.Family;
 
+import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 public class FamilyDao implements DAO<Family> {
 
     List<Family> families = new LinkedList<>();
-
 
     @Override
     public List<Family> getAllFamilies() {
@@ -34,6 +39,7 @@ public class FamilyDao implements DAO<Family> {
     @Override
     public void saveFamily(Family family) {
         if (!families.contains(family)) families.add(family);
-
     }
+
+
 }
