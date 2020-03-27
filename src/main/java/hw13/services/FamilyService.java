@@ -1,5 +1,6 @@
 package hw13.services;
 
+import hw13.dao.DAO;
 import hw13.dao.FamilyDao;
 import hw13.exception.FamilyOverflowException;
 import hw13.human.Family;
@@ -8,15 +9,14 @@ import hw13.human.Man;
 import hw13.human.Woman;
 import hw13.pet.Pet;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FamilyService implements Serializable{
-    private static final long serialVersionUID = 1L;
-
+public class FamilyService {
     private FamilyDao familyDao;
 
     public FamilyService(FamilyDao familyDao) {
@@ -24,7 +24,7 @@ public class FamilyService implements Serializable{
     }
 
     public List<Family> getAllFamilies(){
-        return familyDao.getAllFamilies();
+        return (List<Family>) familyDao.getAllFamilies();
     }
 
     public void displayAllFamilies(){
@@ -40,7 +40,7 @@ public class FamilyService implements Serializable{
     }
 
     public int countFamiliesWithMemberNumber(int memberCount){
-        List<Family> families = familyDao.getAllFamilies();
+        List<Family> families = (List<Family>) familyDao.getAllFamilies();
         families = families.stream().filter(family -> family.countFamily() == memberCount).collect(Collectors.toList());
         System.out.printf("%d family with %d members.\n", families.size(), memberCount);
         return families.size();
@@ -48,7 +48,6 @@ public class FamilyService implements Serializable{
 
     public void createNewFamily(Human father, Human mother){
         familyDao.saveFamily(new Family( father, mother));
-        loadData();
     }
 
     public boolean deleteFamilyByIndex(int index){
@@ -68,7 +67,6 @@ public class FamilyService implements Serializable{
         } catch (FamilyOverflowException e){
             throw e;
         }
-
         return family;
     }
 
@@ -113,9 +111,13 @@ public class FamilyService implements Serializable{
         getFamilyById(index).addPet(pet);
     }
 
-    public void loadData(){
+    public void loadData() throws IOException {
         familyDao.loadData();
-        System.out.println("Data Loaded!!!");
+    }
+
+    public void saveData(){
+        familyDao.saveData();
+        System.out.println("All datas were saved!");
     }
 
 }

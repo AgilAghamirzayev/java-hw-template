@@ -1,10 +1,11 @@
 package hw13.console;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.util.Scanner;
 
-public class Console implements Serializable {
+public class Console implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private static Scanner scanner = new Scanner(System.in);
@@ -12,7 +13,7 @@ public class Console implements Serializable {
     private static UserMenu userMenu = new UserMenu();
     private static EditFamily editFamily = new EditFamily();
 
-    public static void editFamily() throws ParseException {
+    public static void editFamily() throws ParseException, IOException {
 
         boolean exit = false;
         while (!exit) {
@@ -35,7 +36,7 @@ public class Console implements Serializable {
         }
     }
 
-    public static void executeCommand() throws ParseException {
+    public static void executeCommand() throws ParseException, IOException {
         boolean exit = false;
         while (!exit) {
             System.out.println(userMenu.show());

@@ -1,13 +1,15 @@
 package hw13.dao;
-import java.util.List;
+import java.io.IOException;
+import java.util.Collection;
 
 public interface DAO<T>{
 
-     List<T> getAllFamilies();
+     Collection<T> getAllFamilies();
      T getFamilyByIndex(int index);
      boolean deleteFamily(T family);
      boolean deleteFamily(int index);
      void saveFamily(T family);
-     void loadData();
+     void saveData();
+     void loadData() throws IOException;
 
 }

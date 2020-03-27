@@ -12,6 +12,7 @@ import hw13.pet.Pet;
 import hw13.pet.RoboCat;
 import hw13.services.FamilyService;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -69,6 +70,7 @@ public class Executor implements Serializable {
 
         controller.adoptChild(controller.getFamilyById(1),child1);
         controller.adoptChild(controller.getFamilyById(1),child2);
+        controller.saveData();
         System.out.println("Done !");
     }
 

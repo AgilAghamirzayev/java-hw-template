@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.Set;
 
 public class FamilyController implements Serializable{
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -653345678740057348L;
+
 
     private final FamilyService familyService;
 
@@ -78,5 +79,14 @@ public class FamilyController implements Serializable{
 
     public void addPet(int index, Pet pet) {
         familyService.addPet(index, pet);
+    }
+
+
+    public void loadData() throws IOException{
+        familyService.loadData();
+    }
+
+    public void saveData(){
+        familyService.saveData();
     }
 }

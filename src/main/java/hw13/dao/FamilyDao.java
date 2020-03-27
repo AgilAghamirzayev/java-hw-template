@@ -1,33 +1,24 @@
 package hw13.dao;
-
-import hw13.exception.FamilyOverflowException;
 import hw13.human.Family;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FamilyDao implements DAO<Family>, Serializable {
-    private static final long serialVersionUID = 1L;
+public class FamilyDao implements DAO<Family>{
 
-    private static List<Family> families = new ArrayList<>();
-    private File file = new File("Family.txt");
+    private  List<Family> families = new LinkedList<>();
 
     @Override
-    public List<Family> getAllFamilies() {
-        try (ObjectInputStream ois = new ObjectInputStream( new BufferedInputStream(new FileInputStream(file)))) {
-            return  (List<Family>) ois.readObject();
-        } catch (ClassNotFoundException | IOException ex) {
-            ex.printStackTrace();
-            return new LinkedList<>();
-        }
+    public Collection<Family> getAllFamilies() {
+        return families;
     }
 
     @Override
     public Family getFamilyByIndex(int index) {
         if (families.isEmpty()) return null;
-        else return getAllFamilies().get(index);
+        else return families.get(index);
     }
 
     @Override
@@ -46,11 +37,22 @@ public class FamilyDao implements DAO<Family>, Serializable {
     }
 
     @Override
-    public void loadData(){
-        try (ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))){
+    public void saveData() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Family.txt"))){
             oos.writeObject(families);
-        } catch (FamilyOverflowException | IOException ignored){
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @Override
+    public void loadData() throws IOException {
+        File file = new File("Family.txt");
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))){
+            if(file.length() == 0) return;
+            families = (List<Family>) ois.readObject();
+        }catch (FileNotFoundException | ClassNotFoundException e){
+            e.printStackTrace();
         }
     }
 }
