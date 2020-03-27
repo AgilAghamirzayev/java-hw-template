@@ -48,11 +48,13 @@ public class FamilyController implements Serializable{
 
     public void deleteFamilyByIndex(int index) {
         familyService.deleteFamilyByIndex(index);
+        familyService.saveData();
     }
 
 
     public void bornChild(Family family, String boyName, String girlName) {
         familyService.bornChild(family, boyName, girlName);
+        familyService.saveData();
     }
 
     public Family adoptChild(Family family, Human human) {
@@ -61,6 +63,7 @@ public class FamilyController implements Serializable{
 
     public void deleteAllChildrenOlderThen(int age) {
         familyService.deleteAllChildrenOlderThen(age);
+        familyService.saveData();
     }
 
 
@@ -80,6 +83,7 @@ public class FamilyController implements Serializable{
 
     public void addPet(int index, Pet pet) {
         familyService.addPet(index, pet);
+        familyService.saveData();
     }
 
 }

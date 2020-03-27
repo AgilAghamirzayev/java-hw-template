@@ -20,15 +20,15 @@ public class Console implements Serializable{
         boolean exit = false;
         while (!exit) {
             System.out.println(editFamily.show());
-            int s = Integer.parseInt(scanner.nextLine());
+            String  s = scanner.nextLine();
             switch (s) {
-                case 1:
+                case "1":
                     executor.bornChid();
                     break;
-                case 2:
+                case "2":
                     executor.adoptChild();
                     break;
-                case 3:
+                case "3":
                     executeCommand();
                     exit = true;
                     break;
@@ -42,37 +42,37 @@ public class Console implements Serializable{
         boolean exit = false;
         while (!exit) {
             System.out.println(userMenu.show());
-            int s = Integer.parseInt(scanner.nextLine());
+            String s = scanner.nextLine();
             switch (s) {
-                case 1:
+                case "1":
                     executor.fillWithTestData();
                     break;
-                case 2:
+                case "2":
                     executor.displayFamiliesByIndex();
                     break;
-                case 3:
+                case "3":
                     executor.getFamiliesBiggerThan();
                     break;
-                case 4:
+                case "4":
                     executor.getFamiliesLessThan();
                     break;
-                case 5:
+                case "5":
                     executor.countFamiliesWithMemberNumber();
                     break;
-                case 6:
+                case "6":
                     executor.createNewFamily();
                     break;
-                case 7:
+                case "7":
                     executor.deleteFamily();
                     break;
-                case 8:
+                case "8":
                     exit = true;
                     editFamily();
                     break;
-                case 9:
+                case "9":
                     executor.deleteOlderChildren();
                     break;
-                case 10:
+                case "10":
                     System.out.println("Bye ;)");
                     exit = true;
                     break;

@@ -79,100 +79,146 @@ public class Executor implements Serializable {
     }
 
     public void getFamiliesBiggerThan(){
-        System.out.print("request a number one you interested in: ");
-        int a = Integer.parseInt(scanner.nextLine());
-        controller.getFamiliesBiggerThan(a);
+        try {
+            System.out.print("request a number one you interested in: ");
+            int a = Integer.parseInt(scanner.nextLine());
+            controller.getFamiliesBiggerThan(a);
+        } catch (NumberFormatException e){
+            System.out.println("Enter a valid command!!!");
+            getFamiliesBiggerThan();
+        }
+
     }
 
     public void getFamiliesLessThan(){
-        System.out.print("request a number one you interested in: ");
-        int a = Integer.parseInt(scanner.nextLine());
-        controller.getFamiliesLessThan(a);
+
+        try {
+            System.out.print("request a number one you interested in: ");
+            int a = Integer.parseInt(scanner.nextLine());
+            controller.getFamiliesLessThan(a);
+        } catch (NumberFormatException e){
+            System.out.println("Enter a valid command!!!");
+            getFamiliesLessThan();
+        }
     }
 
     public void countFamiliesWithMemberNumber(){
-        System.out.print("request a number one you interested in: ");
-        int a = Integer.parseInt(scanner.nextLine());
-        System.out.println(controller.countFamiliesWithMemberNumber(a));
+        try {
+            System.out.print("request a number one you interested in: ");
+            int a = Integer.parseInt(scanner.nextLine());
+            System.out.println(controller.countFamiliesWithMemberNumber(a));
+        } catch (NumberFormatException e){
+            System.out.println("Enter a valid command!!!");
+            countFamiliesWithMemberNumber();
+        }
+
     }
 
     public void createNewFamily(){
+        try {
+            System.out.print("Enter mother's name: ");
+            String name = scanner.nextLine();
+            System.out.print("Enter mother's lastName: ");
+            String surname = scanner.nextLine();
+            System.out.print("Enter mother's birth year: ");
+            int birthYear = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter mother's month of birth: ");
+            int birthMonth =  Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter mother's birthday: ");
+            int birthDay =  Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter mother's iq: ");
+            int iq = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Enter mother's name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter mother's lastName: ");
-        String surname = scanner.nextLine();
-        System.out.print("Enter mother's birth year: ");
-        int birthYear = Integer.parseInt(scanner.nextLine());
-        System.out.print("Enter mother's month of birth: ");
-        int birthMonth =  Integer.parseInt(scanner.nextLine());
-        System.out.print("Enter mother's birthday: ");
-        int birthDay =  Integer.parseInt(scanner.nextLine());
-        System.out.print("Enter mother's iq: ");
-        int iq = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter father's name: ");
+            String fname = scanner.nextLine();
+            System.out.print("Enter father's lastName: ");
+            String fsurname = scanner.nextLine();
+            System.out.print("Enter father's birth year: ");
+            int fbirthYear = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter father's month of birth: ");
+            int fbirthMonth =  Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter father's birthday: ");
+            int fbirthDay =  Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter father's iq: ");
+            int fiq = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Enter father's name: ");
-        String fname = scanner.nextLine();
-        System.out.print("Enter father's lastName: ");
-        String fsurname = scanner.nextLine();
-        System.out.print("Enter father's birth year: ");
-        int fbirthYear = Integer.parseInt(scanner.nextLine());
-        System.out.print("Enter father's month of birth: ");
-        int fbirthMonth =  Integer.parseInt(scanner.nextLine());
-        System.out.print("Enter father's birthday: ");
-        int fbirthDay =  Integer.parseInt(scanner.nextLine());
-        System.out.print("Enter father's iq: ");
-        int fiq = Integer.parseInt(scanner.nextLine());
+            Human mother = new Woman(name,surname,LocalDate.of(birthYear,birthMonth,birthDay).toEpochDay(),iq);
+            Human father = new Man(fname,fsurname,LocalDate.of(fbirthYear,fbirthMonth,fbirthDay).toEpochDay(),fiq);
 
-        Human mother = new Woman(name,surname,LocalDate.of(birthYear,birthMonth,birthDay).toEpochDay(),iq);
-        Human father = new Man(fname,fsurname,LocalDate.of(fbirthYear,fbirthMonth,fbirthDay).toEpochDay(),fiq);
+            controller.createNewFamily(father,mother);
+            System.out.println("New family created");
+        } catch (NumberFormatException e){
+            System.out.println("Enter a valid command!!!");
+            createNewFamily();
+        }
 
-        controller.createNewFamily(father,mother);
-        System.out.println("New family created");
+
     }
 
 
     public void deleteFamily(){
-        System.out.print("Enter family id: ");
-        int a = Integer.parseInt(scanner.nextLine());
-        controller.deleteFamilyByIndex(a);
-        System.out.println("Deleted!!!");
+        try {
+            System.out.print("Enter family id: ");
+            int a = Integer.parseInt(scanner.nextLine());
+            controller.deleteFamilyByIndex(a);
+            System.out.println("Deleted!!!");
+        } catch (NumberFormatException e){
+            System.out.println("Enter a valid command!!!");
+            deleteFamily();
+        }
     }
 
 
 
-    public void bornChid() throws ParseException {
-        System.out.print("request family identifier (ID): ");
-        int a = Integer.parseInt(scanner.nextLine());
-        System.out.print("Enter boy's name: ");
-        String boyName = scanner.nextLine();
-        System.out.print("Enter girl's name: ");
-        String girlName = scanner.nextLine();
-        controller.bornChild(controller.getFamilyById(a),boyName,girlName);
-        System.out.println("Borned!!!");
+    public void bornChid()  {
+        try {
+            System.out.print("request family identifier (ID): ");
+            int a = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter boy's name: ");
+            String boyName = scanner.nextLine();
+            System.out.print("Enter girl's name: ");
+            String girlName = scanner.nextLine();
+            controller.bornChild(controller.getFamilyById(a),boyName,girlName);
+            System.out.println("Borned!!!");
+        } catch (NumberFormatException e){
+            System.out.println("Enter a valid command!!!");
+            bornChid();
+        }
+
     }
 
     public void adoptChild(){
-        System.out.print("request family identifier (ID): ");
-        int a = Integer.parseInt(scanner.nextLine());
-        System.out.print("Enter name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter surname: ");
-        String surname = scanner.nextLine();
-        System.out.print("Enter year of birth: ");
-        String yearOfBirth = scanner.nextLine();
-        System.out.print("Enter iq: ");
-        int iq = Integer.parseInt(scanner.nextLine());
-        Human human = new Human(name,surname,yearOfBirth,iq);
-        controller.adoptChild(controller.getFamilyById(a),human);
-        System.out.println("Adopted!!!");
+        try {
+            System.out.print("request family identifier (ID): ");
+            int a = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter name: ");
+            String name = scanner.nextLine();
+            System.out.print("Enter surname: ");
+            String surname = scanner.nextLine();
+            System.out.print("Enter year of birth \"dd/MM/yyyy\" Ex 02/02/2020 : ");
+            String yearOfBirth = scanner.nextLine();
+            System.out.print("Enter iq: ");
+            int iq = Integer.parseInt(scanner.nextLine());
+            Human human = new Human(name,surname,yearOfBirth,iq);
+            controller.adoptChild(controller.getFamilyById(a),human);
+            System.out.println("Adopted!!!");
+        } catch (NumberFormatException e){
+            System.out.println("Enter a valid command!!!");
+            adoptChild();
+        }
+
     }
 
     public void deleteOlderChildren(){
-        System.out.println("Enter interested age: ");
-        int s = Integer.parseInt(scanner.nextLine());
-        controller.deleteAllChildrenOlderThen(s);
-        System.out.println("Deleted!!!");
+        try {
+            System.out.println("Enter interested age: ");
+            int s = Integer.parseInt(scanner.nextLine());
+            controller.deleteAllChildrenOlderThen(s);
+            System.out.println("Deleted!!!");
+        } catch (NumberFormatException e){
+            System.out.println("Enter a valid command!!!");
+            deleteOlderChildren();
+        }
     }
 
 }

@@ -79,6 +79,7 @@ public class FamilyService implements Serializable {
             family.addChild(human);
             familyDao.saveFamily(family);
         }
+        saveData();
         return family;
     }
 
