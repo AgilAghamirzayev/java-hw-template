@@ -15,7 +15,7 @@ public class FamilyDao implements DAO<Family>, Serializable{
 
     @Override
     public Collection<Family> getAllFamilies() {
-        return families;
+        return loadData();
     }
 
     @Override
