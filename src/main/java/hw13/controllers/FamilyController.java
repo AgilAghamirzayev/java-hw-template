@@ -43,6 +43,7 @@ public class FamilyController implements Serializable{
 
     public void createNewFamily(Human father, Human mother) {
         familyService.createNewFamily(father, mother);
+        familyService.saveData();
     }
 
     public void deleteFamilyByIndex(int index) {
@@ -81,12 +82,4 @@ public class FamilyController implements Serializable{
         familyService.addPet(index, pet);
     }
 
-
-    public void loadData() throws IOException{
-        familyService.loadData();
-    }
-
-    public void saveData(){
-        familyService.saveData();
-    }
 }

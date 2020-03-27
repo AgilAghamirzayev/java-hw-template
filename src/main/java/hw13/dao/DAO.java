@@ -10,6 +10,6 @@ public interface DAO<T>{
      boolean deleteFamily(int index);
      void saveFamily(T family);
      void saveData();
-     void loadData() throws IOException;
+     Collection<T> loadData() throws IOException;
 
 }

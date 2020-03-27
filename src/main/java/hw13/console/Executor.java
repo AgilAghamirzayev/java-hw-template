@@ -70,7 +70,6 @@ public class Executor implements Serializable {
 
         controller.adoptChild(controller.getFamilyById(1),child1);
         controller.adoptChild(controller.getFamilyById(1),child2);
-        controller.saveData();
         System.out.println("Done !");
     }
 

@@ -48,6 +48,7 @@ public class FamilyService {
 
     public void createNewFamily(Human father, Human mother){
         familyDao.saveFamily(new Family( father, mother));
+        familyDao.saveData();
     }
 
     public boolean deleteFamilyByIndex(int index){
@@ -67,6 +68,7 @@ public class FamilyService {
         } catch (FamilyOverflowException e){
             throw e;
         }
+        familyDao.saveData();
         return family;
     }
 
