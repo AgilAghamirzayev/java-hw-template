@@ -59,14 +59,14 @@ public class FamilyService implements Serializable {
 
     public Family bornChild(Family family, String boyName, String girlName){
         if (!familyDao.getAllFamilies().contains(family)) familyDao.saveFamily(family);
-        Random random = new Random();
         String surname = family.getFather().getSurname();
         LocalDate birthDate = LocalDate.now();
-        Human child;
-        if (random.nextBoolean()) child = new Man(boyName,surname, birthDate.toEpochDay(), family);
-        else child = new Woman(girlName, surname, birthDate.toEpochDay(), family);
+        Human child1, child2;
+        child1 = new Man(boyName,surname, birthDate.toEpochDay(), family);
+        child2 = new Woman(girlName, surname, birthDate.toEpochDay(), family);
         try {
-            family.addChild(child);
+            family.addChild(child1);
+            family.addChild(child2);
         } catch (FamilyOverflowException e){
              e.getMessage();
         }
@@ -99,7 +99,6 @@ public class FamilyService implements Serializable {
         });
     }
 
-
     public int count(){
         return familyDao.getAllFamilies().size();
     }
@@ -114,6 +113,7 @@ public class FamilyService implements Serializable {
 
     public void addPet(int index, Pet pet){
         getFamilyById(index).addPet(pet);
+        familyDao.saveData();
     }
 
     public void loadData(){
