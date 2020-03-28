@@ -12,9 +12,7 @@ import hw13.pet.Pet;
 import hw13.pet.RoboCat;
 import hw13.services.FamilyService;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -220,5 +218,6 @@ public class Executor implements Serializable {
             deleteOlderChildren();
         }
     }
+
 
 }

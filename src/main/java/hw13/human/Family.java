@@ -66,8 +66,7 @@ public class Family implements Serializable {
 
     public boolean deleteChild(Human child){
         if (children.indexOf(child) == -1) return false;
-        int index = children.indexOf(child);
-        Human human = children.remove(index);
+        children.remove(child);
         return true;
     }
 

@@ -38,6 +38,7 @@ public class FamilyService implements Serializable {
 
     public void getFamiliesLessThan(int size){
        familyDao.getAllFamilies().stream().filter(family-> family.countFamily()<size).forEach(family -> System.out.printf("%s\n",family.prettyFormat()));
+
     }
 
     public int countFamiliesWithMemberNumber(int memberCount){
@@ -67,7 +68,7 @@ public class FamilyService implements Serializable {
         try {
             family.addChild(child);
         } catch (FamilyOverflowException e){
-            throw e;
+             e.getMessage();
         }
         familyDao.saveData();
         return family;
@@ -115,7 +116,7 @@ public class FamilyService implements Serializable {
         getFamilyById(index).addPet(pet);
     }
 
-    public void loadData() throws IOException {
+    public void loadData(){
         familyDao.loadData();
     }
 

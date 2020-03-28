@@ -23,7 +23,7 @@ public class FamilyService {
     }
 
     public void displayAllFamilies(){
-        familyDao.getAllFamilies().forEach(family -> System.out.printf("%d, %s\n", getAllFamilies().indexOf(family)+1,family.toString()));
+        familyDao.getAllFamilies().forEach(family -> System.out.printf("%d. %s\n", getAllFamilies().indexOf(family)+1,family.toString()));
     }
 
     public void getFamiliesBiggerThan(int size){

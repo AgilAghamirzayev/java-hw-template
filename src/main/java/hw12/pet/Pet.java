@@ -57,8 +57,8 @@ public abstract class Pet {
     }
 
     public String toString(){
-        //return String.format("%s{nickname=%s, age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, this.getHabits());
-        return String.format("{My name is %s, I am a %s}", nickname, species);
+        return String.format("%s{nickname=%s, age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, this.getHabits());
+        //return String.format("{My name is %s, I am a %s}", nickname, species);
     }
 
     @Override

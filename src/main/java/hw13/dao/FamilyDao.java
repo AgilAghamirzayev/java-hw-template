@@ -1,9 +1,5 @@
 package hw13.dao;
 import hw13.human.*;
-import hw13.pet.Dog;
-import hw13.pet.Fish;
-import hw13.pet.Pet;
-import hw13.pet.RoboCat;
 
 import java.io.*;
 import java.util.*;
@@ -54,9 +50,9 @@ public class FamilyDao implements DAO<Family>, Serializable{
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))){
             if(file.length() == 0) return null;
             return (List<Family>) ois.readObject();
-        }catch (IOException | ClassNotFoundException e){
+        } catch (IOException | ClassNotFoundException e){
             e.printStackTrace();
-            return (List<Family>) new Family(null,null);
+            return new LinkedList<>();
         }
     }
 
