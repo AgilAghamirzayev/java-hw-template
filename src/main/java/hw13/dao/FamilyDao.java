@@ -44,6 +44,7 @@ public class FamilyDao implements DAO<Family>, Serializable{
         }
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Collection<Family> loadData() {
         File file = new File("Family.txt");

@@ -22,10 +22,10 @@ public class Family {
         children[temp++] = child;
     }
 
-    void deleteChild(int index){
+    void deleteChild(){
         int a=0;
         for (int i = 0; i < temp ; i++) {
-            if (i == index - 1) continue;
+            if (i == 1 - 1) continue;
             children[a]=children[i];
             a++;
         }

@@ -24,7 +24,9 @@ public abstract class Pet {
     }
 
 
-    Pet (Species species){species = Species.UNKNOWN;}
+    Pet(){
+        Species species = Species.UNKNOWN;
+    }
 
 
 

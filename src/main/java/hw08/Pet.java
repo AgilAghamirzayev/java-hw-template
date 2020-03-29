@@ -1,6 +1,5 @@
 package hw08;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public abstract class Pet {
@@ -24,7 +23,9 @@ public abstract class Pet {
     }
 
 
-    Pet (Species species){species = Species.UNKNOWN;}
+    Pet(){
+        Species species = Species.UNKNOWN;
+    }
 
 
 
