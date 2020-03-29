@@ -107,7 +107,7 @@ class FamilyServiceTest implements Serializable {
     @Test
     void bornChild() {
         String actual = service.bornChild(service.getFamilyById(0),"Ali","Ayla").children.toString();
-        String expect = "[{ name = 'Ali', surname ='Aliyeva', birth date ='28/03/2020', iq = 0, schedule ={}}, { name = 'Ayla', surname ='Aliyeva', birth date ='28/03/2020', iq = 0, schedule ={}}]";
+        String expect = "[{ name = 'Ali', surname ='Aliyeva', birth date ='29/03/2020', iq = 0, schedule ={}}, { name = 'Ayla', surname ='Aliyeva', birth date ='29/03/2020', iq = 0, schedule ={}}]";
         assertEquals(actual,expect);
     }
 
@@ -115,7 +115,7 @@ class FamilyServiceTest implements Serializable {
     void adoptChild() {
         Human child =  new Man("Achild", "Achild", LocalDate.of(1960, 10, 18).toEpochDay());
         String actual = service.adoptChild(service.getFamilyById(0),child).children.toString();
-        String expect = "[{ name = 'Ali', surname ='Aliyeva', birth date ='28/03/2020', iq = 0, schedule ={}}, { name = 'Ayla', surname ='Aliyeva', birth date ='28/03/2020', iq = 0, schedule ={}}, { name = 'Orxan', surname ='Valiyev', birth date ='11/02/2014', iq = 0, schedule ={WEDNESDAY=[school, do smt], SUNDAY=[relax, go to movie]}}, { name = 'Achild', surname ='Achild', birth date ='18/10/1960', iq = 0, schedule ={}}]";
+        String expect = "[{ name = 'Ali', surname ='Aliyeva', birth date ='29/03/2020', iq = 0, schedule ={}}, { name = 'Ayla', surname ='Aliyeva', birth date ='29/03/2020', iq = 0, schedule ={}}, { name = 'Orxan', surname ='Valiyev', birth date ='11/02/2014', iq = 0, schedule ={WEDNESDAY=[school, do smt], SUNDAY=[relax, go to movie]}}, { name = 'Achild', surname ='Achild', birth date ='18/10/1960', iq = 0, schedule ={}}]";
         assertEquals(actual,expect);
     }
 
@@ -133,8 +133,8 @@ class FamilyServiceTest implements Serializable {
                 "\t\tfather: { name = 'Ali', surname ='Aiyev', birth date ='18/10/1960', iq = 0, schedule ={THURSDAY=[sport, do smt], FRIDAY=[relax, go to movie]}}\n" +
                 "\t\tmother: { name = 'Aysu', surname ='Aliyeva', birth date ='12/09/1963', iq = 0, schedule ={THURSDAY=[sport, do smt], FRIDAY=[relax, go to movie]}}\n" +
                 "\t\tchildren:\n" +
-                "\t\t\t\tboy: { name = 'Ali', surname ='Aliyeva', birth date ='28/03/2020', iq = 0, schedule ={}}\n" +
-                "\t\t\t\tgirl: { name = 'Ayla', surname ='Aliyeva', birth date ='28/03/2020', iq = 0, schedule ={}}\n" +
+                "\t\t\t\tboy: { name = 'Ali', surname ='Aliyeva', birth date ='29/03/2020', iq = 0, schedule ={}}\n" +
+                "\t\t\t\tgirl: { name = 'Ayla', surname ='Aliyeva', birth date ='29/03/2020', iq = 0, schedule ={}}\n" +
                 "\t\tpets: [\n" +
                 "\t\t\t\tFISH {nickname=Memo, age=2, trickLevel=109, habits=[swim, clean, jump]}, \n" +
                 "\t\t\t\tROBOCAT {nickname=Tom, age=3, trickLevel=92, habits=[swim, clean, jump]}]\n" +
