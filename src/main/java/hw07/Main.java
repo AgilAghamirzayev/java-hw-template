@@ -21,7 +21,5 @@ public class Main {
         System.out.println(family.toString());
         family.mother.makeUp();
         family.father.repairCar();
-
-
     }
 }
